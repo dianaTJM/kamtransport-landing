@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /_image_backup/
+Disallow: /css/
+
+Sitemap: https://kamtransport.id/sitemap.xml
+Sitemap: https://kamtransport.id/images/sitemap.xml

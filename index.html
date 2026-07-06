@@ -13,16 +13,21 @@
 <meta property="og:description" content="Solusi transportasi premium di Malang sejak 2021. Armada lengkap, driver profesional."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://kamtransport.id"/>
-<meta property="og:image" content="https://kamtransport.id/images/logo.jpeg"/>
-<meta property="og:image:width" content="512"/>
-<meta property="og:image:height" content="512"/>
+<meta property="og:image" content="https://kamtransport.id/images/logo.webp"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
 <meta property="og:locale" content="id_ID"/>
 <meta property="og:site_name" content="KAM Transport"/>
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:image" content="https://kamtransport.id/images/logo.jpeg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://kamtransport.id/images/logo.webp"/>
 <meta name="theme-color" content="#1e1208"/>
-<link rel="icon" type="image/jpeg" href="images/logo.jpeg"/>
-<link rel="apple-touch-icon" href="images/logo.jpeg"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta http-equiv="X-Content-Type-Options" content="nosniff"/>
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin"/>
+<meta http-equiv="X-Frame-Options" content="SAMEORIGIN"/>
+<meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()"/>
+<link rel="icon" type="image/webp" href="images/logo.webp"/>
+<link rel="apple-touch-icon" href="images/logo.webp"/>
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -208,11 +213,13 @@
 </script>
 </head>
 <body>
+<a href="#main-content" class="sr-only">Lewati ke konten utama</a>
+<main id="main-content">
 
 <!-- ═══════════ HEADER ═══════════ -->
-<header class="header"><div class="header-inner">
+<header class="header" role="banner"><div class="header-inner">
   <div class="brand">
-    <img src="images/logo.jpeg" alt="Logo KAM Transport" width="36" height="36"/>
+    <img src="images/logo.webp" alt="Logo KAM Transport" width="36" height="36" loading="lazy"/>
     <span>KAM Transport</span>
   </div>
   <nav class="nav-links" aria-label="Navigasi">
@@ -226,7 +233,7 @@
 
 <!-- ═══════════ HERO ═══════════ -->
 <section class="hero">
-<div class="hero-bg"><img src="images/gambar-1.jpg" alt="" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async"/><div class="hero-overlay"></div></div>
+<div class="hero-bg"><picture><source srcset="images/gambar-1-400w.webp 400w, images/gambar-1-800w.webp 800w, images/gambar-1-1200w.webp 1200w" type="image/webp"/><source srcset="images/gambar-1-400w.jpg 400w, images/gambar-1-800w.jpg 800w, images/gambar-1-1200w.jpg 1200w" type="image/jpeg"/><img src="images/gambar-1.webp" alt="Pemandangan perjalanan KAM Transport" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async"/></picture><div class="hero-overlay"></div></div>
 <div class="hero-content">
   <div class="hero-badge">
     <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -273,22 +280,22 @@
 <div class="why-grid">
   <div class="why-card reveal">
     <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.8" style="margin:0 auto var(--space-3);"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-    <h4>5 Tahun Pengalaman</h4>
+    <h3>5 Tahun Pengalaman</h3>
     <p>Udah berpengalaman menemani ratusan perjalanan, dari santai sampai penuh jadwal padat.</p>
   </div>
   <div class="why-card reveal reveal-delay-1">
     <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.8" style="margin:0 auto var(--space-3);"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-    <h4>Fleksibel untuk Semua</h4>
+    <h3>Fleksibel untuk Semua</h3>
     <p>Jarak dekat atau jauh, rombongan kecil atau besar — kami sesuaikan tanpa ribet.</p>
   </div>
   <div class="why-card reveal reveal-delay-2">
     <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.8" style="margin:0 auto var(--space-3);"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10"/><path d="M12 2a15.3 15.3 0 0 0-4 10 15.3 15.3 0 0 0 4 10"/></svg>
-    <h4>Driver Paham Medan</h4>
+    <h3>Driver Paham Medan</h3>
     <p>Ramah, tepat waktu, dan hafal jalur Malang-Batu-Bromo-Jawa Timur luar dalam.</p>
   </div>
   <div class="why-card reveal reveal-delay-3">
     <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.8" style="margin:0 auto var(--space-3);"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-    <h4>Armada Terawat &amp; Lengkap</h4>
+    <h3>Armada Terawat &amp; Lengkap</h3>
     <p>Dicek rutin sebelum jalan, tersedia mulai 5 seat sampai 19 seat.</p>
   </div>
 </div>
@@ -306,11 +313,11 @@
   </div>
   <div class="uvp reveal reveal-delay-3">
     <svg class="icon-xl" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.8" style="flex-shrink:0;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-    <div><h4>Mengapa KAM Transport?</h4><p>Kami kombinasi sempurna antara <strong>kualitas premium</strong> dan <strong>harga terjangkau</strong>. Tidak perlu mengorbankan kenyamanan untuk budget, atau sebaliknya.</p></div>
+    <div><h3>Mengapa KAM Transport?</h3><p>Kami kombinasi sempurna antara <strong>kualitas premium</strong> dan <strong>harga terjangkau</strong>. Tidak perlu mengorbankan kenyamanan untuk budget, atau sebaliknya.</p></div>
   </div>
 </div>
 <div class="about-image-wrap reveal reveal-delay-1">
-  <img src="images/gambar-4.jpg" alt="Tim KAM Transport" width="1200" height="900" loading="lazy"/>
+  <img src="images/gambar-4.webp" alt="Tim KAM Transport" width="1200" height="900" loading="lazy"/>
 </div>
 </div>
 </div></section>
@@ -324,7 +331,7 @@
   <!-- Avanza -->
   <article class="carousel-item card card-media reveal">
     <span class="badge badge-dark badge-corner">⭐ Favorit</span>
-    <img src="images/toyota-avanza-fwd.jpg" alt="Toyota Avanza FWD" width="640" height="360" loading="lazy"/>
+    <picture><source srcset="images/toyota-avanza-fwd-400w.webp 400w, images/toyota-avanza-fwd-800w.webp 800w" type="image/webp"/><source srcset="images/toyota-avanza-fwd-400w.jpg 400w, images/toyota-avanza-fwd-800w.jpg 800w" type="image/jpeg"/><img src="images/toyota-avanza-fwd.webp" alt="Toyota Avanza FWD" width="640" height="360" loading="lazy"/></picture>
     <div class="card-body">
       <h3 class="armada-title">Toyota Avanza FWD</h3>
       <div class="armada-meta"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>7 Seat · Manual</div>
@@ -337,7 +344,7 @@
   <!-- Innova -->
   <article class="carousel-item card card-media reveal reveal-delay-1">
     <span class="badge badge-dark badge-corner">⭐ Best Seller</span>
-    <img src="images/innova.jpg" alt="Innova Reborn" width="640" height="360" loading="lazy"/>
+    <picture><source srcset="images/innova-400w.webp 400w, images/innova-700w.webp 700w" type="image/webp"/><source srcset="images/innova-400w.jpg 400w, images/innova-700w.jpg 700w" type="image/jpeg"/><img src="images/innova.webp" alt="Innova Reborn" width="640" height="360" loading="lazy"/></picture>
     <div class="card-body">
       <h3 class="armada-title">Innova Reborn</h3>
       <div class="armada-meta"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>7 Seat · Manual</div>
@@ -349,7 +356,7 @@
 
   <!-- Brio -->
   <article class="carousel-item card card-media reveal reveal-delay-2">
-    <img src="images/brio.jpg" alt="Brio" width="640" height="360" loading="lazy"/>
+    <picture><source srcset="images/brio-400w.webp 400w, images/brio-800w.webp 800w" type="image/webp"/><source srcset="images/brio-400w.jpg 400w, images/brio-800w.jpg 800w" type="image/jpeg"/><img src="images/brio.webp" alt="Brio" width="640" height="360" loading="lazy"/></picture>
     <div class="card-body">
       <h3 class="armada-title">Brio</h3>
       <div class="armada-meta"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>5 Seat · Manual</div>
@@ -362,7 +369,7 @@
   <!-- Hiace Premio -->
   <article class="carousel-item card card-media reveal reveal-delay-3">
     <span class="badge badge-gold badge-corner">💎 Premium</span>
-    <img src="images/hiace-premio.jpg" alt="Hiace Premio" width="640" height="360" loading="lazy"/>
+    <picture><source srcset="images/hiace-premio-400w.webp 400w, images/hiace-premio-688w.webp 688w" type="image/webp"/><source srcset="images/hiace-premio-400w.jpg 400w, images/hiace-premio-688w.jpg 688w" type="image/jpeg"/><img src="images/hiace-premio.webp" alt="Hiace Premio" width="640" height="360" loading="lazy"/></picture>
     <div class="card-body">
       <h3 class="armada-title">Hiace Premio</h3>
       <div class="armada-meta"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>14 Seat · Manual</div>
@@ -374,7 +381,7 @@
 
   <!-- Hiace Commuter -->
   <article class="carousel-item card card-media reveal">
-    <img src="images/hiace-commuter.jpg" alt="Hiace Commuter" width="640" height="360" loading="lazy"/>
+    <picture><source srcset="images/hiace-commuter-400w.webp 400w, images/hiace-commuter-652w.webp 652w" type="image/webp"/><source srcset="images/hiace-commuter-400w.jpg 400w, images/hiace-commuter-652w.jpg 652w" type="image/jpeg"/><img src="images/hiace-commuter.webp" alt="Hiace Commuter" width="640" height="360" loading="lazy"/></picture>
     <div class="card-body">
       <h3 class="armada-title">Hiace Commuter</h3>
       <div class="armada-meta"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>14 Seat · Manual</div>
@@ -386,7 +393,7 @@
 
   <!-- Elf Giga -->
   <article class="carousel-item card card-media reveal">
-    <img src="images/elf-giga.jpg" alt="Elf Giga" width="640" height="360" loading="lazy"/>
+    <picture><source srcset="images/elf-giga-400w.webp 400w, images/elf-giga-600w.webp 600w, images/elf-giga-900w.webp 900w" type="image/webp"/><source srcset="images/elf-giga-400w.jpg 400w, images/elf-giga-600w.jpg 600w, images/elf-giga-900w.jpg 900w" type="image/jpeg"/><img src="images/elf-giga.webp" alt="Elf Giga" width="640" height="360" loading="lazy"/></picture>
     <div class="card-body">
       <h3 class="armada-title">Elf Giga</h3>
       <div class="armada-meta"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>19 Seat · Manual</div>
@@ -448,18 +455,18 @@
 </div></section>
 
 <!-- ═══════════ FOOTER ═══════════ -->
-<footer class="footer" id="kontak"><div class="container">
+<footer class="footer" id="kontak" role="contentinfo"><div class="container">
 <div class="footer-grid">
   <div>
-    <h5>KAM Transport</h5>
+    <h2>KAM Transport</h2>
     <p style="font-size:var(--text-sm);">Solusi transportasi premium di Malang. Sejak 2021.</p>
   </div>
   <div>
-    <h5>Navigasi</h5>
+    <h3>Navigasi</h3>
     <ul><li><a href="#tentang">Tentang Kami</a></li><li><a href="#armada">Armada</a></li><li><a href="#testimoni">Testimoni</a></li><li><a href="#faq">FAQ</a></li></ul>
   </div>
   <div>
-    <h5>Kontak</h5>
+    <h3>Kontak</h3>
     <ul>
       <li>
         <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:.25rem;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -472,7 +479,7 @@
     </ul>
   </div>
   <div>
-    <h5>Ikuti Kami</h5>
+    <h3>Ikuti Kami</h3>
     <ul>
       <li><a href="https://www.instagram.com/kam_transport" target="_blank" rel="noopener noreferrer">Instagram</a></li>
       <li><a href="https://www.tiktok.com/@karya_mudaabadi" target="_blank" rel="noopener noreferrer">TikTok</a></li>
@@ -607,5 +614,6 @@ const statsObs=new IntersectionObserver((entries,obs)=>{entries.forEach(e=>{if(e
 const statsEl=document.querySelector('.trust-grid');if(statsEl)statsObs.observe(statsEl);
 </script>
 
+</main>
 </body>
 </html>
