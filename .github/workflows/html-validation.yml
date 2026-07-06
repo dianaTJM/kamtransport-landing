@@ -1,0 +1,66 @@
+name: HTML Validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate HTML
+        run: |
+          if ! python3 -c "
+from html.parser import HTMLParser
+class Validator(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.stack = []
+        self.errors = []
+    def handle_starttag(self, tag, attrs):
+        void_tags = {'area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr'}
+        if tag not in void_tags:
+            self.stack.append(tag)
+    def handle_endtag(self, tag):
+        void_tags = {'area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr'}
+        if tag not in void_tags:
+            if not self.stack:
+                self.errors.append(f'Unexpected closing tag: {tag}')
+            elif self.stack[-1] != tag:
+                self.errors.append(f'Mismatched tag: expected {self.stack[-1]}, got {tag}')
+                self.stack.pop()
+            else:
+                self.stack.pop()
+v = Validator()
+with open('index.html') as f:
+    v.feed(f.read())
+if v.stack:
+    print(f'Unclosed tags: {v.stack}')
+    exit(1)
+if v.errors:
+    print(f'Errors: {v.errors}')
+    exit(1)
+print('HTML validated successfully')
+          "; then
+            echo "::error::HTML validation failed"
+            exit 1
+          fi
+      - name: Check for broken image references
+        run: |
+          python3 -c "
+import re
+from pathlib import Path
+html = Path('index.html').read_text()
+imgs = re.findall(r'src=["\']([^"\']+)["\']', html)
+img_dir = Path('images')
+for img in imgs:
+    if img.startswith('http'):
+        continue
+    if not (img_dir / img).exists():
+        print(f'Broken image: {img}')
+        exit(1)
+print('All image references valid')
+          "

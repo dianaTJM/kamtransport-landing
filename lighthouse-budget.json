@@ -1,0 +1,27 @@
+{
+  "resourceSizes": {
+    "html": {
+      "maxKb": 100
+    },
+    "css": {
+      "maxKb": 50
+    },
+    "javascript": {
+      "maxKb": 100
+    },
+    "image": {
+      "maxKb": 500
+    },
+    "font": {
+      "maxKb": 300
+    }
+  },
+  "navigationMetrics": {
+    "firstContentfulPaintMs": {
+      "p75": 3000
+    },
+    "largestContentfulPaintMs": {
+      "p75": 4000
+    }
+  }
+}
