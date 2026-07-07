@@ -546,19 +546,14 @@
 <p class="text-center reveal reveal-delay-1" style="color:var(--color-muted);margin-bottom:var(--space-8);">Penawaran khusus dan update layanan terbaru</p>
 <div class="promo-grid">
   <article class="promo-card reveal">
-    <h4>🎉 Promo Liburan Akhir Tahun</h4>
-    <p>Diskon 15% untuk pemesanan pakai city tour 3 hari ke Bromo + Ijen. Berlaku hingga akhir bulan.</p>
-    <div class="promo-meta">Promo · 10 November 2026</div>
-  </article>
-  <article class="promo-card reveal reveal-delay-1">
     <h4>🚐 Armada Baru: Hiace Premio</h4>
     <p>Sekarang tersedia unit Hiace Premio with interior premium untuk rombongan menengah.</p>
-    <div class="promo-meta">Info · 3 November 2026</div>
+    <div class="promo-meta">Info · <span class="promo-date"></span></div>
   </article>
-  <article class="promo-card reveal reveal-delay-2">
+  <article class="promo-card reveal reveal-delay-1">
     <h4>📋 Tips Perjalanan Aman</h4>
     <p>Persiapan perjalanan panjang, tips packing, dan checklist sebelum berangkat bersama KAM Transport.</p>
-    <div class="promo-meta">Artikel · 28 Oktober 2026</div>
+    <div class="promo-meta">Artikel · <span class="promo-date"></span></div>
   </article>
 </div>
 </div></section>
@@ -985,7 +980,7 @@ function renderModeration(){
     saveReviews(loadReviews().filter(x=>x.id!==id));renderModeration();
   }));
 }
-document.addEventListener('DOMContentLoaded',()=>{renderReviews();renderModeration();});
+document.addEventListener('DOMContentLoaded',()=>{renderReviews();renderModeration();const today=new Date();document.querySelectorAll('.promo-date').forEach(el=>{el.textContent=today.toLocaleDateString('id-ID',{day:'numeric',month:'long',year:'numeric'});});});
 </script>
 
 </main>
