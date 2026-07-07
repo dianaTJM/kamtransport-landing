@@ -40,6 +40,7 @@
 <link rel="stylesheet" href="css/components/_modal.css"/>
 <link rel="stylesheet" href="css/components/_utilities.css"/>
 
+<script src="js/config.js" type="text/javascript"></script>
 <style>
 /* ═══════ PAGE LAYOUT ═══════ */
 
@@ -683,7 +684,7 @@
   <div>
     <h3>Navigasi</h3>
     <ul><li><a href="#tentang">Tentang Kami</a></li><li><a href="#armada">Armada</a></li><li><a href="#testimoni">Testimoni</a></li><li><a href="#promo">Promo</a></li><li><a href="#galeri">Galeri</a></li><li><a href="#faq">FAQ</a></li></ul>
-    <p style="margin-top:var(--space-3);"><a href="#" id="ownerAccessLink" style="font-size:var(--text-xs);color:rgba(255,255,255,.25);text-decoration:none;">Admin</a></p>
+    <p style="margin-top:var(--space-3);"><a href="#" id="ownerAccessLink" style="font-size:var(--text-xs);color:rgba(255,255,255,.25);text-decoration:none;" aria-label="Owner access — klik 7 kali">Admin</a></p>
   </div>
   <div>
     <h3>Kontak</h3>
@@ -721,7 +722,7 @@
 <div class="form-group">
   <label class="form-label" for="ownerPassword">Password</label>
   <input class="form-input" id="ownerPassword" type="password" autocomplete="current-password" required placeholder="Masukkan password owner"/>
-  <p class="form-helper">Masukkan password untuk membuka panel moderasi review.</p>
+  <p class="form-helper">Akses owner terbatas untuk moderasi. Jika lupa password, hubungi administrator sistem untuk reset.</p>
 </div>
 </div></div>
 
@@ -865,7 +866,7 @@ function loadReviews(){
   }catch{return[];}
 }
 function saveReviews(list){localStorage.setItem(lsKey('queue'),JSON.stringify(list));}
-function loadSettings(){try{const raw=localStorage.getItem(lsKey('settings'));return raw?JSON.parse(raw):{password:'kAm2026!'};}catch{return{password:'kAm2026!'};}}
+function loadSettings(){try{const raw=localStorage.getItem(lsKey('settings'));return raw?JSON.parse(raw):{passwordHash: (window.KAM_CONFIG&&window.KAM_CONFIG.ownerPasswordHash)||''};}catch{return{passwordHash:(window.KAM_CONFIG&&window.KAM_CONFIG.ownerPasswordHash)||''};}}
 function saveSettings(s){localStorage.setItem(lsKey('settings'),JSON.stringify(s));}
 function fmtDate(s){const d=new Date(s+'T00:00:00');return d.toLocaleDateString('id-ID',{day:'numeric',month:'long',year:'numeric'});}
 function stars(n){let h='';for(let i=1;i<=5;i++){h+=`<svg class="icon-sm" viewBox="0 0 24 24" ${i<=n?'fill="var(--color-accent-lt)" stroke="var(--color-accent)" stroke-width="1.5"':'fill="none" stroke="var(--gray-300)" stroke-width="1.5"'}><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`;}return h;}
@@ -940,13 +941,15 @@ const ownerPassword=document.getElementById('ownerPassword');
 const ownerLink=document.getElementById('ownerAccessLink');
 function openOwner(){ownerOverlay.classList.add('open');ownerOverlay.setAttribute('aria-hidden','false');ownerPassword.value='';document.body.style.overflow='hidden';}
 function closeOwner(){ownerOverlay.classList.remove('open');ownerOverlay.setAttribute('aria-hidden','true');document.body.style.overflow='';}
-if(ownerLink){ownerLink.addEventListener('click',e=>{e.preventDefault();openOwner();});}
+if(ownerLink){let ownerClicks=0, ownerTimer=null;ownerLink.addEventListener('click',e=>{e.preventDefault();ownerClicks++;ownerLink.style.color='rgba(255,255,255,.55)';if(ownerTimer)clearTimeout(ownerTimer);ownerTimer=setTimeout(()=>{ownerClicks=0;ownerLink.style.color='rgba(255,255,255,.25)';},1500);if(ownerClicks>=7){ownerClicks=0;clearTimeout(ownerTimer);ownerLink.style.color='rgba(255,255,255,.25)';openOwner();}});}
 document.querySelector('#ownerModalOverlay .modal-close').addEventListener('click',closeOwner);
 ownerOverlay.addEventListener('click',e=>{if(e.target===ownerOverlay)closeOwner();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeOwner();});
-ownerPassword.addEventListener('keydown',e=>{if(e.key==='Enter'){
+ownerPassword.addEventListener('keydown',async e=>{if(e.key==='Enter'){
   const settings=loadSettings();
-  if(ownerPassword.value===settings.password){closeOwner();ownerPanel.hidden=false;renderModeration();}
+  let hash='';
+  try{const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(ownerPassword.value));hash=Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');}catch{}
+  if(hash===settings.passwordHash||ownerPassword.value===settings.password){closeOwner();ownerPanel.hidden=false;renderModeration();}
   else{alert('Password salah.');ownerPassword.value='';}
 }});
 function renderModeration(){
