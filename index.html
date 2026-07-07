@@ -548,12 +548,12 @@
   <article class="promo-card reveal">
     <h4>🚐 Armada Baru: Hiace Premio</h4>
     <p>Sekarang tersedia unit Hiace Premio with interior premium untuk rombongan menengah.</p>
-    <div class="promo-meta">Info · <span class="promo-date"></span></div>
+    <div class="promo-meta">Info · <span class="promo-date">7 Juli 2026</span></div>
   </article>
   <article class="promo-card reveal reveal-delay-1">
     <h4>📋 Tips Perjalanan Aman</h4>
     <p>Persiapan perjalanan panjang, tips packing, dan checklist sebelum berangkat bersama KAM Transport.</p>
-    <div class="promo-meta">Artikel · <span class="promo-date"></span></div>
+    <div class="promo-meta">Artikel · <span class="promo-date">7 Juli 2026</span></div>
   </article>
 </div>
 </div></section>
@@ -980,7 +980,7 @@ function renderModeration(){
     saveReviews(loadReviews().filter(x=>x.id!==id));renderModeration();
   }));
 }
-document.addEventListener('DOMContentLoaded',()=>{renderReviews();renderModeration();const today=new Date();document.querySelectorAll('.promo-date').forEach(el=>{el.textContent=today.toLocaleDateString('id-ID',{day:'numeric',month:'long',year:'numeric'});});});
+document.addEventListener('DOMContentLoaded',()=>{renderReviews();renderModeration();});
 </script>
 
 </main>
