@@ -176,6 +176,30 @@
 .testi-author{font-weight:var(--weight-semibold);font-size:var(--text-sm);}
 .testi-role{font-size:var(--text-xs);color:var(--color-muted);}
 
+/* ── Testimoni / Review ────────── */
+.review-summary{display:flex;align-items:center;justify-content:center;gap:var(--space-4);padding:var(--space-5);background:var(--cream-100);border-radius:var(--radius-lg);border:1px solid var(--color-border);margin-bottom:var(--space-8);flex-wrap:wrap;}
+.review-summary .avg{font:var(--weight-bold)var(--text-3xl)var(--font-display);color:var(--color-primary);line-height:1;}
+.review-summary .stars{display:flex;gap:2px;color:var(--color-accent-lt);}
+.review-summary .meta{font-size:var(--text-sm);color:var(--color-muted);}
+.review-grid{display:grid;grid-template-columns:1fr;gap:var(--space-5);}
+@media(min-width:640px){.review-grid{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:1024px){.review-grid{grid-template-columns:repeat(3,1fr);}}
+.review-card{padding:var(--space-5);background:var(--color-surface);border-radius:var(--radius-lg);border:1px solid var(--color-border);transition:all var(--ease-normal);}
+.review-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);}
+.review-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--space-3);}
+.review-author{display:flex;align-items:center;gap:var(--space-3);}
+.review-avatar{width:40px;height:40px;border-radius:50%;background:var(--color-primary);color:var(--white);display:flex;align-items:center;justify-content:center;font:var(--weight-bold)var(--text-sm)var(--font-display);flex-shrink:0;}
+.review-name{font-weight:var(--weight-semibold);font-size:var(--text-sm);color:var(--color-ink);}
+.review-location{font-size:var(--text-xs);color:var(--color-muted);}
+.review-verified{display:inline-flex;align-items:center;gap:2px;font-size:var(--text-xs);color:#059669;background:#ecfdf5;border:1px solid #a7f3d0;padding:2px 6px;border-radius:var(--radius-full);}
+.review-body{margin:var(--space-3)0 var(--space-4);font-size:var(--text-sm);color:var(--gray-700);line-height:var(--leading-relaxed);}
+.review-footer{display:flex;align-items:center;justify-content:space-between;font-size:var(--text-xs);color:var(--color-muted);}
+.review-stars{display:flex;gap:2px;color:var(--color-accent-lt);}
+.review-empty{text-align:center;padding:var(--space-12) var(--space-6);color:var(--color-muted);}
+.review-empty .empty-icon{font-size:var(--text-4xl);margin-bottom:var(--space-4);opacity:.6;}
+.review-empty h3{font-size:var(--text-lg);color:var(--color-ink);margin:0 0 var(--space-2);}
+.review-empty p{margin:0;font-size:var(--text-sm);}
+
 /* ── FAQ ────────────────── */
 .faq-wrap{max-width:760px;margin:0 auto;}
 
@@ -410,25 +434,20 @@
 <h2 class="text-center reveal">Apa Kata Pelanggan Kami?</h2>
 <p class="text-center reveal reveal-delay-1" style="color:var(--color-muted);margin-bottom:var(--space-8);">Cerita nyata dari pelanggan yang sudah merasakan layanan KAM Transport</p>
 
-<div class="testi-grid">
-  <div class="testi-card reveal">
-    <div class="testi-stars"><svg class="icon-lg" viewBox="0 0 24 24" fill="var(--color-accent-lt)" stroke="var(--color-accent)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon-lg" viewBox="0 0 24 24" fill="var(--color-accent-lt)" stroke="var(--color-accent)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon-lg" viewBox="0 0 24 24" fill="var(--color-accent-lt)" stroke="var(--color-accent)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon-lg" viewBox="0 0 24 24" fill="var(--color-accent-lt)" stroke="var(--color-accent)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon-lg" viewBox="0 0 24 24" fill="var(--color-accent-lt)" stroke="var(--color-accent)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-    <p class="testi-quote">"Pelayanannya sangat memuaskan. Driver ramah dan tahu jalur wisata di Malang. Pastinya akan pakai lagi!"</p>
-    <div class="testi-author">Bpk. Ahmad</div>
-    <div class="testi-role">Wisatawan dari Surabaya</div>
+<div class="review-summary reveal" id="reviewSummary">
+  <div>
+    <div class="avg" id="avgRating">4.9</div>
+    <div class="stars" id="avgStars" aria-label="Rata-rata rating 4.9 dari 5"></div>
+    <div class="meta" id="reviewMeta">8 ulasan</div>
   </div>
-  <div class="testi-card reveal reveal-delay-1">
-    <div class="testi-stars"><svg class="icon-lg" viewBox="0 0 24 24" fill="var(--color-accent-lt)" stroke="var(--color-accent)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon-lg" viewBox="0 0 24 24" fill="var(--color-accent-lt)" stroke="var(--color-accent)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon-lg" viewBox="0 0 24 24" fill="var(--color-accent-lt)" stroke="var(--color-accent)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon-lg" viewBox="0 0 24 24" fill="var(--color-accent-lt)" stroke="var(--color-accent)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon-lg" viewBox="0 0 24 24" fill="var(--color-accent-lt)" stroke="var(--color-accent)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-    <p class="testi-quote">"Sewa Innova untuk liburan keluarga. Mobil bersih, driver sopan, harga terjangkau. Anak-anak senang!"</p>
-    <div class="testi-author">Ibu Rina</div>
-    <div class="testi-role">Keluarga dari Jakarta</div>
-  </div>
-  <div class="testi-card reveal reveal-delay-2">
-    <div class="testi-stars"><svg class="icon-lg" viewBox="0 0 24 24" fill="var(--color-accent-lt)" stroke="var(--color-accent)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon-lg" viewBox="0 0 24 24" fill="var(--color-accent-lt)" stroke="var(--color-accent)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon-lg" viewBox="0 0 24 24" fill="var(--color-accent-lt)" stroke="var(--color-accent)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon-lg" viewBox="0 0 24 24" fill="var(--color-accent-lt)" stroke="var(--color-accent)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon-lg" viewBox="0 0 24 24" fill="var(--color-accent-lt)" stroke="var(--color-accent)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-    <p class="testi-quote">"Sudah beberapa kali pakai jasa KAM Transport untuk kebutuhan dinas. Selalu tepat waktu dan profesional."</p>
-    <div class="testi-author">Mas Budi</div>
-    <div class="testi-role">Instansi</div>
-  </div>
+</div>
+
+<div class="review-grid" id="reviewGrid" role="list" aria-label="Daftar review pelanggan"></div>
+
+<div class="review-empty" id="reviewEmpty" hidden>
+  <div class="empty-icon" aria-hidden="true">⭐</div>
+  <h3>Belum ada review</h3>
+  <p>Jadilah yang pertama merasakan layanan KAM Transport.</p>
 </div>
 </div></section>
 
@@ -612,6 +631,52 @@ document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
 
 const statsObs=new IntersectionObserver((entries,obs)=>{entries.forEach(e=>{if(e.isIntersecting){animateCounters();obs.unobserve(e.target);}});},{threshold:.3});
 const statsEl=document.querySelector('.trust-grid');if(statsEl)statsObs.observe(statsEl);
+
+/* ── Reviews ─────────────────── */
+const reviewData=[
+  {id:1,name:"Bpk. Ahmad",rating:5,comment:"Pelayanannya sangat memuaskan. Driver ramah dan tahu jalur wisata di Malang. Pastinya akan pakai lagi!",date:"2026-06-12",location:"Surabaya",verified:true},
+  {id:2,name:"Ibu Rina",rating:5,comment:"Sewa Innova untuk liburan keluarga. Mobil bersih, driver sopan, harga terjangkau. Anak-anak senang!",date:"2026-05-28",location:"Jakarta",verified:true},
+  {id:3,name:"Mas Budi",rating:5,comment:"Sudah beberapa kali pakai jasa KAM Transport untuk kebutuhan dinas. Selalu tepat waktu dan profesional.",date:"2026-05-15",location:"Malang",verified:true},
+  {id:4,name:"Ibu Sari",rating:4,comment:"Perjalanan ke Bromo sangat nyaman. Hanya sedikit keterlambatan karena cuaca, tapi tetap aman dan terorganisir.",date:"2026-04-30",location:"Bandung",verified:true},
+  {id:5,name:"Pak Andi",rating:5,comment:"Armada terawat dan harga transparan. Tidak ada biaya tersembunyi. Recommended untuk rombongan kantor.",date:"2026-04-18",location:"Surabaya",verified:false},
+  {id:6,name:"Ibu Dewi",rating:5,comment:"Driver friendly dan ramah. Perjalanan ke Pasuruan lancar tanpa hambatan. Pasti repeat order!",date:"2026-03-22",location:"Malang",verified:true},
+  {id:7,name:"Mas Rizki",rating:4,comment:"Pelayanan oke, kendaraan bersih. Cuma harap bisa tambah opsi pembayaran non-tunai di loket.",date:"2026-03-05",location:"Jakarta",verified:true},
+  {id:8,name:"Ibu Melati",rating:5,comment:"Liburan keluarga ke Jatim Park jadi lebih berkesan. Driver sabar menunggu dan selalu membantu.",date:"2026-02-14",location:"Surabaya",verified:true}
+];
+function fmtDate(s){const d=new Date(s+'T00:00:00');return d.toLocaleDateString('id-ID',{day:'numeric',month:'long',year:'numeric'});}
+function stars(n){let h='';for(let i=1;i<=5;i++){h+=`<svg class="icon-sm" viewBox="0 0 24 24" ${i<=n?'fill="var(--color-accent-lt)" stroke="var(--color-accent)" stroke-width="1.5"':'fill="none" stroke="var(--gray-300)" stroke-width="1.5"'}><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`;}return h;}
+function renderReviews(){
+  const grid=document.getElementById('reviewGrid');
+  const empty=document.getElementById('reviewEmpty');
+  const summary=document.getElementById('reviewSummary');
+  if(!grid)return;
+  if(!reviewData||!reviewData.length){if(summary)summary.hidden=true;grid.hidden=true;if(empty)empty.hidden=false;return;}
+  if(summary)summary.hidden=false;grid.hidden=false;if(empty)empty.hidden=true;
+  const avg=reviewData.reduce((a,b)=>a+(b.rating||0),0)/reviewData.length;
+  const avgEl=document.getElementById('avgRating');if(avgEl)avgEl.textContent=avg.toFixed(1);
+  const meta=document.getElementById('reviewMeta');if(meta)meta.textContent=`${reviewData.length} ulasan`;
+  const avgStars=document.getElementById('avgStars');if(avgStars)avgStars.innerHTML=stars(Math.round(avg));
+  grid.innerHTML=reviewData.map(r=>`<article class="review-card reveal" role="listitem">
+    <div class="review-header">
+      <div class="review-author">
+        <div class="review-avatar" aria-hidden="true">${(r.name||'').charAt(0)||'?'}</div>
+        <div>
+          <div class="review-name">${r.name||'Pelanggan'}</div>
+          <div class="review-location">${[r.location].filter(Boolean).join(', ')}</div>
+        </div>
+      </div>
+      ${r.verified?'<span class="review-verified">✔ Terverifikasi</span>':''}
+    </div>
+    <div class="review-stars" aria-label="Rating ${r.rating} dari 5">${stars(r.rating||0)}</div>
+    <p class="review-body">${r.comment||''}</p>
+    <div class="review-footer">
+      <span>${fmtDate(r.date)}</span>
+      <span>Rating ${r.rating}/5</span>
+    </div>
+  </article>`).join('');
+  if('IntersectionObserver' in window){const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -30px 0px'});grid.querySelectorAll('.reveal').forEach(el=>obs.observe(el));}else{grid.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));}
+}
+document.addEventListener('DOMContentLoaded',renderReviews);
 </script>
 
 </main>
