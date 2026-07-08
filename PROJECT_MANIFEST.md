@@ -108,5 +108,6 @@ Jika production tidak match dengan repository:
 ---
 
 **Manifest ini dibuat:** 7 Juli 2026  
-**Terakhir diverifikasi:** 7 Juli 2026  
-**Status:** ✅ ACTIVE
+**Terakhir diverifikasi:** 8 Juli 2026 00:15 WIB  
+**Status:** ✅ ACTIVE  
+**Deployment saat ini:** ❌ BLOCKED (lihat DEPLOYMENT_MANIFEST.md)
