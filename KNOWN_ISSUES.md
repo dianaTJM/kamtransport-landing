@@ -25,20 +25,26 @@
 
 ### Root Cause
 
-**Belum dipastikan.** Dugaan:
+**Classification:** UNKNOWN
 
-1. **Platform Overload** - Vercel sedang mengalami antrean panjang
-2. **Token/Permission Issue** - Token CLI atau permission project bermasalah
-3. **Configuration Error** - `vercel.json` atau environment variables issue
-4. **Platform Bug** - Bug sementara di Vercel infrastructure
+**Evidence:**
+- Deployment stuck di QUEUED >4 jam (Observation)
+- Build log kosong (0ms) — deployment tidak pernah mulai build (Evidence)
+- Deployment sebelumnya (12h) berhasil READY dalam 2-3 detik (Evidence)
+- Tidak ada error eksplisit di `vercel inspect` output (Evidence)
 
-### Hypothesis
+**Analysis:**
+Build log kosong (0ms) menandakan deployment tidak pernah mulai build. Tidak ada evidence langsung yang membuktikan penyebab spesifik (permission error, config error, platform bug, dll). Recovery berhasil (cancel & redeploy) tidak membuktikan root cause — hanya membuktikan antrean dapat di-clear.
 
-- **Confidence:** <80%
-- **Evidence:** Deployment sebelumnya (12h) berhasil, tidak ada error eksplisit, build log kosong
-- **Likelihood:** Platform overload > Permission issue > Config error > Platform bug
+**Hypothesis (LIKELY):**
+- Platform overload / antrean Vercel sedang panjang
 
-### Recovery Attempts
+**Hypothesis (POSSIBLE):**
+- Token/permission issue yang intermittent
+- Configuration error yang tidak terdeteksi
+- Platform bug sementara
+
+---
 
 | Attempt | Time | Action | Result | Notes |
 |---------|------|--------|--------|-------|
