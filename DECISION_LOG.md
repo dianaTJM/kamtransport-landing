@@ -136,23 +136,27 @@ Outcome
 2. Deployment baru dibuat dengan commit `dd2b045`
 3. Deployment status: READY dalam 7s (build machine: Washington, D.C. – iad1)
 4. Production URL: `https://kamtransport.vercel.app` updated
-5. Fitur "KAM Photos" muncul di production (confirmed via curl)
-6. HTML production identical dengan source (no diff)
-7. Assets (CSS, JS, images) berhasil dimuat
+5. HTML production identical dengan source (no diff)
+6. Assets (CSS, JS, images) berhasil dimuat
 
 **Verification Results:**
 - ✅ Deployment status: READY (21s ago)
 - ✅ Production accessible: `https://kamtransport.vercel.app`
-- ✅ "KAM Photos" found in production HTML
+- ✅ HTML source match: "KAM Photos" string found in production HTML
 - ✅ HTML diff: No differences (identical)
 - ✅ CSS assets loading correctly
-- ✅ Project status: BLOCKED → READY
+- ⚠️ **Visual verification:** Tombol "KAM Photos" reportedly tidak terlihat di browser mobile (perlu investigasi lanjutan)
+
+**Caveats:**
+- curl grep confirmation hanya membuktikan string "KAM Photos" ada di HTML production
+- Tidak membuktikan tombol tersebut terlihat/ter-render di browser
+- Visual verification via browser mobile melaporkan tombol tidak terlihat
+- Perlu investigasi lebih lanjut untuk menentukan apakah ini CSS rendering issue, JavaScript issue, atau viewport issue
 
 **Next Steps:**
-- Update DEPLOYMENT_MANIFEST.md
-- Update PROJECT_STATE.md
-- Update KNOWN_ISSUES.md #001
-- Update .hermes/project-memory.json
+- Investigasi penyebab tombol tidak terlihat di browser mobile
+- Update dokumentasi setelah root cause ditemukan
+- Jika diperlukan, perbaiki CSS/HTML untuk memastikan tombol terlihat
 
 ---
 

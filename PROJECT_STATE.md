@@ -24,7 +24,7 @@
 - [x] DEPLOYMENT_MANIFEST.md created
 - [x] Repository audit (clean, synced)
 - [x] Deployment method identified (MANUAL_CLI)
-- [x] Production verification (stale confirmed)
+- [x] Production verification (HTML match confirmed)
 - [x] Manifest files committed & pushed
 - [x] PROJECT_STATE.md created
 - [x] MISSION.md created
@@ -33,8 +33,11 @@
 - [x] DECISION_LOG.md created
 - [x] **Deployment blocker resolved** (cancel & redeploy SUCCESS)
 - [x] **Production deployment successful** (READY in 7s)
-- [x] **Production verification PASS** (HTML identical, features appear)
-- [x] **Fitur "KAM Photos" muncul di production**
+- [x] **HTML production match source** (identical)
+
+### ⚠️ Pending Investigation
+- [ ] **Tombol "KAM Photos" tidak terlihat di browser mobile** (perlu investigasi CSS/JS/rendering)
+- [ ] Visual verification PASS (browser-based, bukan curl-based)
 
 ### ⏳ Pending
 - [ ] Update documentation files (DEPLOYMENT_MANIFEST, PROJECT_STATE, etc.)
@@ -43,9 +46,9 @@
 
 - [x] Repository sinkron ✅
 - [x] Deployment READY ✅
-- [x] Production sesuai source ✅
-- [x] Semua fitur berfungsi ✅
-- [x] Visual sesuai ✅
+- [x] HTML production sesuai source ✅
+- [ ] Visual sesuai (tombol "KAM Photos" terlihat di browser) ⚠️
+- [ ] Semua fitur berfungsi ⚠️
 
 ## 📋 Next Action
 
