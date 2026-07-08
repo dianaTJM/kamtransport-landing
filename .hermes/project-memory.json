@@ -28,15 +28,15 @@
   },
   "current_state": {
     "status": "READY",
-    "current_commit": "dd2b045",
+    "current_commit": "2ace1f6",
     "current_branch": "feat/review-submission-moderation",
     "repository_clean": true,
     "repository_synced": true,
-    "last_deployment_id": "2XaYpjMLheXSgMGM5yUwM8kvUL4q",
+    "last_deployment_id": "2cH1gMPCYfc6bP6kBpBeDbzAzy6Y",
     "last_deployment_status": "READY",
-    "last_deployment_created": "Tue Jul 07 2026 23:36:36 GMT+0000",
+    "last_deployment_created": "Wed Jul 08 2026",
     "production_stale": false,
-    "production_commit": "e8276bf"
+    "production_commit": "2ace1f6"
   },
   "known_issues": [
     {
@@ -106,16 +106,16 @@
     "auto_execute": false
   },
   "last_successful_deployment": {
-    "deployment_id": "2XaYpjMLheXSgMGM5yUwM8kvUL4q",
-    "commit": "dd2b045",
+    "deployment_id": "2cH1gMPCYfc6bP6kBpBeDbzAzy6Y",
+    "commit": "2ace1f6",
     "status": "READY",
-    "duration_seconds": 7,
+    "duration_seconds": 11,
     "age_hours": 0
   },
   "last_verified_commit": {
-    "production": "dd2b045",
-    "repository": "dd2b045",
-    "verified_at": "8 Juli 2026 00:50 WIB"
+    "production": "2ace1f6",
+    "repository": "2ace1f6",
+    "verified_at": "8 Juli 2026 (latest)"
   },
   "session_metadata": {
     "project_memory_created": "8 Juli 2026 00:30 WIB",
