@@ -1,0 +1,120 @@
+{
+  "project": {
+    "name": "KAM Transport",
+    "client": "Karya Muda Abadi Transport",
+    "repository": "dianaTJM/kamtransport-landing",
+    "owner": "dianaTJM",
+    "workspace_path": "/workspaces/kamtransport-landing"
+  },
+  "deployment": {
+    "method": "MANUAL_CLI",
+    "provider": "Vercel",
+    "project_id": "prj_TF7m9opX73tfTBhjaaZ0feWiEA3A",
+    "team_id": "team_AtMVCnSlsjbkk8PvUpah0XCv",
+    "team_name": "tajmincmp",
+    "deployment_owner": "tajin-9233",
+    "production_url": "https://kamtransport.vercel.app",
+    "linked_repository": false,
+    "auto_deploy": false,
+    "cli_version": "54.20.1"
+  },
+  "repository": {
+    "default_branch": "main",
+    "production_branch": "feat/review-submission-moderation",
+    "entry_point": "index.html",
+    "framework": "Static HTML/CSS/JS",
+    "build_command": null,
+    "output_directory": null
+  },
+  "current_state": {
+    "status": "BLOCKED",
+    "current_commit": "4986870",
+    "current_branch": "feat/review-submission-moderation",
+    "repository_clean": true,
+    "repository_synced": true,
+    "last_deployment_id": "dpl_Cfft87hY1MbSmHpxYKg4TvzKMVcf",
+    "last_deployment_status": "QUEUED",
+    "last_deployment_created": "Tue Jul 07 2026 23:36:36 GMT+0000",
+    "production_stale": true,
+    "production_commit": "e8276bf"
+  },
+  "known_issues": [
+    {
+      "issue": "Deployment stuck in QUEUED status",
+      "duration_hours": 4,
+      "impact": "Production cannot be updated",
+      "status": "ACTIVE"
+    },
+    {
+      "issue": "Production serving stale content",
+      "missing_features": ["KAM Photos button", "Project Manifest"],
+      "status": "ACTIVE"
+    }
+  ],
+  "lessons_learned": [
+    {
+      "lesson": "Deployment method is MANUAL_CLI, not AUTO_GITHUB",
+      "impact": "Every push requires manual deployment via Vercel CLI",
+      "prevention": "Always check PROJECT_MANIFEST.md before working"
+    },
+    {
+      "lesson": "Project owned by team 'tajmincmp', not dianaTJM",
+      "impact": "Deployment permissions tied to specific user/team",
+      "prevention": "Verify team ownership in vercel CLI"
+    },
+    {
+      "lesson": "No linked repository in Vercel",
+      "impact": "GitHub webhooks tidak aktif, tidak ada auto-deploy",
+      "prevention": "Manual deployment wajib setelah push"
+    }
+  ],
+  "known_fixes": [
+    {
+      "fix": "Manual deployment via 'vercel --prod'",
+      "when": "After every push to production branch",
+      "success_rate": "High (2-3 seconds duration historically)"
+    },
+    {
+      "fix": "Cancel stuck deployment + redeploy",
+      "when": "When deployment stuck in QUEUED/BUILDING >30 menit",
+      "command": "vercel rm <deployment_id> --yes && vercel --prod"
+    }
+  ],
+  "current_blocker": {
+    "type": "DEPLOYMENT_STUCK",
+    "deployment_id": "dpl_Cfft87hY1MbSmHpxYKg4TvzKMVcf",
+    "status": "QUEUED",
+    "duration_hours": 4,
+    "root_cause": "Unknown (hypothesis: platform overload, permission issue, config error)",
+    "confidence": "<80%",
+    "requires_human_decision": true
+  },
+  "next_recommended_action": {
+    "action": "USER_DECISION_REQUIRED",
+    "options": [
+      "Cancel & Redeploy (recommended)",
+      "Force Redeploy",
+      "Manual Investigation via Vercel Dashboard",
+      "Wait & Monitor"
+    ],
+    "confidence": "<80%",
+    "auto_execute": false
+  },
+  "last_successful_deployment": {
+    "deployment_id": "dpl_...",
+    "commit": "e8276bf",
+    "status": "READY",
+    "duration_seconds": 2,
+    "age_hours": 12
+  },
+  "last_verified_commit": {
+    "production": "e8276bf",
+    "repository": "4986870",
+    "verified_at": "8 Juli 2026 00:30 WIB"
+  },
+  "session_metadata": {
+    "project_memory_created": "8 Juli 2026 00:30 WIB",
+    "last_updated": "8 Juli 2026 00:30 WIB",
+    "version": "1.0.0"
+  }
+}
