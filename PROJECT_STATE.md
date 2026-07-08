@@ -48,6 +48,10 @@
 
 **Prioritas:** Resolve deployment blocker
 
+**Known Issues:** #001 (Deployment Stuck), #002 (Production Stale)
+
+**Recovery Attempts:** 4 (monitoring only) —详见 KNOWN_ISSUES.md
+
 **Options:**
 1. Cancel deployment stuck → redeploy
 2. Force redeploy
