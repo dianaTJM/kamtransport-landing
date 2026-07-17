@@ -239,49 +239,113 @@
 <body>
 <a href="#main-content" class="sr-only">Lewati ke konten utama</a>
 <main id="main-content">
-<!-- ═══════════ HERO ═══════════ -->
-<section class="hero">
-<div class="hero-bg"><picture><source srcset="images/gambar-1-400w.webp 400w, images/gambar-1-800w.webp 800w, images/gambar-1-1200w.webp 1200w" type="image/webp"/><source srcset="images/gambar-1-400w.jpg 400w, images/gambar-1-800w.jpg 800w, images/gambar-1-1200w.jpg 1200w" type="image/jpeg"/><img src="images/gambar-1.webp" alt="Pemandangan perjalanan KAM Transport" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async"/></picture><div class="hero-overlay"></div></div>
-<div class="hero-content">
-  <div class="hero-badge">
-    <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-    <span>4.9/5 dari 500+ Pelanggan</span>
-  </div>
-  <h1 class="hero-title">Perjalanan Nyaman<br/><span class="highlight">Dimulai di Sini</span></h1>
-  <p class="hero-subtitle">Solusi transportasi premium di Malang sejak 2021. Armada terawat, driver profesional, pelayanan terpercaya.</p>
-  <div class="hero-cta">
-    <button class="btn btn-primary btn-lg open-modal">Reservasi Sekarang</button>
-    <a href="/fleet" class="btn btn-outline btn-lg">Lihat Armada</a>
-  </div>
-  <div class="price-anchor"><span>Mulai dari </span><span class="amount">Rp 550rb</span><span>/hari</span></div>
-</div>
-<div class="scroll-indicator"><span>Scroll</span><div class="scroll-arrow">↓</div></div>
-</section>
+<!-- ═══════════ ARMADA ═══════════ -->
+<section class="section" id="armada"><div class="container">
+<h2 class="text-center reveal">Pilihan Armada Premium</h2>
+<p class="text-center reveal reveal-delay-1" style="color:var(--color-muted);margin-bottom:var(--space-8);">Geser untuk lihat semua unit — tersedia mulai 5 hingga 19 seat</p>
 
-<!-- ═══════════ TRUST ═══════════ -->
-<section class="section-sm" id="trust"><div class="container">
-<h2 class="text-center reveal">Mengapa 500+ Pelanggan Memilih Kami?</h2>
-<div class="trust-grid">
-  <div class="trust-card reveal">
-    <div class="trust-icon"><svg class="icon-2xl" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.8"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 23 3 23 16 16 16"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-    <div class="counter-num" data-target="500">0</div>
-    <div class="trust-label">Perjalanan Selesai</div>
+<div class="carousel" aria-label="Daftar armada">
+  <article class="carousel-item card card-media reveal">
+    <span class="badge badge-dark badge-corner">⭐ Favorit</span>
+    <picture><source srcset="images/toyota-avanza-fwd-400w.webp 400w, images/toyota-avanza-fwd-800w.webp 800w" type="image/webp"/><source srcset="images/toyota-avanza-fwd-400w.jpg 400w, images/toyota-avanza-fwd-800w.jpg 800w" type="image/jpeg"/><img src="images/toyota-avanza-fwd.webp" alt="Toyota Avanza FWD" width="640" height="360" loading="lazy"/></picture>
+    <div class="card-body">
+      <h3 class="armada-title">Toyota Avanza FWD</h3>
+      <div class="armada-meta"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>7 Seat · Manual</div>
+      <div class="armada-price"><span class="amt">Rp 550rb</span><span class="per">/hari</span></div>
+      <p class="armada-desc">Mobil keluarga ideal untuk city tour dan perjalanan santai dengan kelompok kecil.</p>
+      <button class="btn btn-primary btn-block pesan-btn" data-unit="Toyota Avanza FWD">Pesan Unit Ini</button>
+    </div>
+  </article>
+
+  <article class="carousel-item card card-media reveal reveal-delay-1">
+    <span class="badge badge-dark badge-corner">⭐ Best Seller</span>
+    <picture><source srcset="images/innova-400w.webp 400w, images/innova-700w.webp 700w" type="image/webp"/><source srcset="images/innova-400w.jpg 400w, images/innova-700w.jpg 700w" type="image/jpeg"/><img src="images/innova.webp" alt="Innova Reborn" width="640" height="360" loading="lazy"/></picture>
+    <div class="card-body">
+      <h3 class="armada-title">Innova Reborn</h3>
+      <div class="armada-meta"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>7 Seat · Manual</div>
+      <div class="armada-price"><span class="amt">Rp 750rb</span><span class="per">/hari</span></div>
+      <p class="armada-desc">MPV nyaman dengan ruang luas, favorit keluarga dan instansi.</p>
+      <button class="btn btn-primary btn-block pesan-btn" data-unit="Innova Reborn">Pesan Unit Ini</button>
+    </div>
+  </article>
+
+  <article class="carousel-item card card-media reveal reveal-delay-2">
+    <picture><source srcset="images/brio-400w.webp 400w, images/brio-800w.webp 800w" type="image/webp"/><source srcset="images/brio-400w.jpg 400w, images/brio-800w.jpg 800w" type="image/jpeg"/><img src="images/brio.webp" alt="Brio" width="640" height="360" loading="lazy"/></picture>
+    <div class="card-body">
+      <h3 class="armada-title">Brio</h3>
+      <div class="armada-meta"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>5 Seat · Manual</div>
+      <div class="armada-price"><span class="amt">Rp 550rb</span><span class="per">/hari</span></div>
+      <p class="armada-desc">Mobil kompak dan irit, sempurna untuk perjalanan pribadi atau pasangan.</p>
+      <button class="btn btn-primary btn-block pesan-btn" data-unit="Brio">Pesan Unit Ini</button>
+    </div>
+  </article>
+
+  <article class="carousel-item card card-media reveal reveal-delay-3">
+    <span class="badge badge-gold badge-corner">💎 Premium</span>
+    <picture><source srcset="images/hiace-premio-400w.webp 400w, images/hiace-premio-688w.webp 688w" type="image/webp"/><source srcset="images/hiace-premio-400w.jpg 400w, images/hiace-premio-688w.jpg 688w" type="image/jpeg"/><img src="images/hiace-premio.webp" alt="Hiace Premio" width="640" height="360" loading="lazy"/></picture>
+    <div class="card-body">
+      <h3 class="armada-title">Hiace Premio</h3>
+      <div class="armada-meta"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>14 Seat · Manual</div>
+      <div class="armada-price"><span class="amt">Rp 1.350rb</span><span class="per">/hari</span></div>
+      <p class="armada-desc">Minibus mewah dengan interior premium, ideal untuk rombongan menengah.</p>
+      <button class="btn btn-primary btn-block pesan-btn" data-unit="Hiace Premio">Pesan Unit Ini</button>
+    </div>
+  </article>
+
+  <article class="carousel-item card card-media reveal">
+    <picture><source srcset="images/hiace-commuter-400w.webp 400w, images/hiace-commuter-652w.webp 652w" type="image/webp"/><source srcset="images/hiace-commuter-400w.jpg 400w, images/hiace-commuter-652w.jpg 652w" type="image/jpeg"/><img src="images/hiace-commuter.webp" alt="Hiace Commuter" width="640" height="360" loading="lazy"/></picture>
+    <div class="card-body">
+      <h3 class="armada-title">Hiace Commuter</h3>
+      <div class="armada-meta"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>14 Seat · Manual</div>
+      <div class="armada-price"><span class="amt">Rp 1.200rb</span><span class="per">/hari</span></div>
+      <p class="armada-desc">Minibus andal dengan kapasitas besar, cocok untuk kelompok atau instansi.</p>
+      <button class="btn btn-primary btn-block pesan-btn" data-unit="Hiace Commuter">Pesan Unit Ini</button>
+    </div>
+  </article>
+
+  <article class="carousel-item card card-media reveal">
+    <picture><source srcset="images/elf-giga-400w.webp 400w, images/elf-giga-600w.webp 600w, images/elf-giga-900w.webp 900w" type="image/webp"/><source srcset="images/elf-giga-400w.jpg 400w, images/elf-giga-600w.jpg 600w, images/elf-giga-900w.jpg 900w" type="image/jpeg"/><img src="images/elf-giga.webp" alt="Elf Giga" width="640" height="360" loading="lazy"/></picture>
+    <div class="card-body">
+      <h3 class="armada-title">Elf Giga</h3>
+      <div class="armada-meta"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>19 Seat · Manual</div>
+      <div class="armada-price"><span class="amt">Rp 1.200rb</span><span class="per">/hari</span></div>
+      <p class="armada-desc">Bus besar untuk rombongan besar, nyaman untuk perjalanan jauh.</p>
+      <button class="btn btn-primary btn-block pesan-btn" data-unit="Elf Giga">Pesan Unit Ini</button>
+    </div>
+  </article>
+</div>
+</div></section>
+
+<!-- ═══════════ TESTIMONI ═══════════ -->
+<section class="section-sm" id="testimoni" style="background:var(--cream-100);"><div class="container">
+<h2 class="text-center reveal">Apa Kata Pelanggan Kami?</h2>
+<p class="text-center reveal reveal-delay-1" style="color:var(--color-muted);margin-bottom:var(--space-8);">Cerita nyata dari pelanggan yang sudah merasakan layanan KAM Transport</p>
+<div class="review-summary reveal" id="reviewSummary">
+  <div>
+    <div class="avg" id="avgRating">4.9</div>
+    <div class="stars" id="avgStars" aria-label="Rata-rata rating 4.9 dari 5"></div>
+    <div class="meta" id="reviewMeta">8 ulasan</div>
   </div>
-  <div class="trust-card reveal reveal-delay-1">
-    <div class="trust-icon"><svg class="icon-2xl" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-    <div class="counter-num" data-target="200">0</div>
-    <div class="trust-label">Pelanggan Puas</div>
-  </div>
-  <div class="trust-card reveal reveal-delay-2">
-    <div class="trust-icon"><svg class="icon-2xl" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.8"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 23 3 23 16 16"/></svg></div>
-    <div class="counter-num" data-target="8">0</div>
-    <div class="trust-label">Armada Siap</div>
-  </div>
-  <div class="trust-card reveal reveal-delay-3">
-    <div class="trust-icon"><svg class="icon-2xl" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.8"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.4 8 12 8 12s8-6.6 8-12a8 8 0 0 0-8-8z"/></svg></div>
-    <div class="counter-num" data-target="12">0</div>
-    <div class="trust-label">Driver Profesional</div>
-  </div>
+</div>
+<div class="review-grid" id="reviewGrid" role="list" aria-label="Daftar review pelanggan"></div>
+<div class="review-empty" id="reviewEmpty" hidden>
+  <div class="empty-icon" aria-hidden="true">⭐</div>
+  <h3>Belum ada review</h3>
+  <p>Jadilah yang pertama merasakan layanan KAM Transport.</p>
+</div>
+</div></section>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section class="section" id="faq"><div class="container">
+<h2 class="text-center reveal">Pertanyaan Umum</h2>
+<p class="text-center reveal reveal-delay-1" style="color:var(--color-muted);margin-bottom:var(--space-8);">Semua yang perlu Anda ketahui sebelum memesan</p>
+<div class="faq-wrap">
+  <div class="accordion-item reveal"><button class="accordion-trigger" aria-expanded="false"><span>Bagaimana cara pemesanan?</span><svg class="accordion-icon icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="accordion-panel"><div class="accordion-panel-content">Anda bisa menghubungi kami via WhatsApp atau telepon. Sampaikan kebutuhan Anda (unit, tanggal, tujuan), dan kami akan bantu prosesnya dengan cepat.</div></div></div>
+  <div class="accordion-item reveal"><button class="accordion-trigger" aria-expanded="false"><span>Apakah harga sudah termasuk BBM?</span><svg class="accordion-icon icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="accordion-panel"><div class="accordion-panel-content">Untuk perjalanan dalam kota Malang, harga sudah termasuk BBM. Untuk luar kota, akan ada tambahan biaya BBM sesuai jarak tujuan yang akan dikonfirmasikan oleh tim kami.</div></div></div>
+  <div class="accordion-item reveal"><button class="accordion-trigger" aria-expanded="false"><span>Berapa lama minimal sewa?</span><svg class="accordion-icon icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="accordion-panel"><div class="accordion-panel-content">Minimal sewa adalah 1 hari (24 jam). Untuk perjalanan di bawah 12 jam, tetap dikenakan biaya 1 hari penuh.</div></div></div>
+  <div class="accordion-item reveal"><button class="accordion-trigger" aria-expanded="false"><span>Apakah bisa cancel atau ubah jadwal?</span><svg class="accordion-icon icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="accordion-panel"><div class="accordion-panel-content">Bisa. Cancel H-3 sebelum tanggal sewa dikenakan biaya admin Rp 50.000. Cancel H-1 dikenakan 50% dari total biaya. Ubah jadwal fleksibel sesuai ketersediaan unit.</div></div></div>
+  <div class="accordion-item reveal"><button class="accordion-trigger" aria-expanded="false"><span>Bagaimana metode pembayaran?</span><svg class="accordion-icon icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="accordion-panel"><div class="accordion-panel-content">Pembayaran dilakukan via transfer bank. DP 50% saat pemesanan, pelunasan sebelum berangkat. Konfirmasi pembayaran via WhatsApp.</div></div></div>
+  <div class="accordion-item reveal"><button class="accordion-trigger" aria-expanded="false"><span>Apakah ada asuransi?</span><svg class="accordion-icon icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="accordion-panel"><div class="accordion-panel-content">Ya, semua unit kami dilengkapi asuransi all-risk untuk kenyamanan dan keamanan Anda selama perjalanan.</div></div></div>
 </div>
 </div></section>
 
