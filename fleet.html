@@ -40,6 +40,7 @@
 <link rel="stylesheet" href="css/components/_modal.css"/>
 <link rel="stylesheet" href="css/components/_utilities.css"/>
 
+<script src="js/config.js" type="text/javascript"></script>
 <style>
 /* ═══════ PAGE LAYOUT ═══════ */
 
@@ -200,6 +201,87 @@
 .review-empty h3{font-size:var(--text-lg);color:var(--color-ink);margin:0 0 var(--space-2);}
 .review-empty p{margin:0;font-size:var(--text-sm);}
 
+/* ── Review Form ─────────────── */
+.review-submit-wrap{max-width:760px;margin:var(--space-10) auto 0;}
+.review-submit-card{padding:var(--space-6);background:var(--color-surface);border-radius:var(--radius-lg);border:1px solid var(--color-border);}
+.review-submit-card h3{font:var(--weight-semibold)var(--text-lg)var(--font-display);margin:0 0 var(--space-2);color:var(--color-ink);}
+.review-submit-card p{margin:0 0 var(--space-5);font-size:var(--text-sm);color:var(--color-muted);}
+.review-form-grid{display:grid;grid-template-columns:1fr;gap:var(--space-4);}
+@media(min-width:640px){.review-form-grid{grid-template-columns:repeat(2,1fr);}}
+.review-form-group{display:flex;flex-direction:column;gap:var(--space-2);}
+.review-form-group.full{grid-column:1/-1;}
+.review-form-label{font-size:var(--text-sm);font-weight:var(--weight-medium);color:var(--color-ink);}
+.review-form-input,.review-form-textarea,.review-form-select{font:inherit;font-size:var(--text-sm);padding:.625rem .75rem;border-radius:var(--radius-md);border:1px solid var(--color-border);background:var(--white);color:var(--color-ink);outline:none;transition:border-color var(--ease-fast),box-shadow var(--ease-fast);}
+.review-form-input:focus,.review-form-textarea:focus,.review-form-select:focus{border-color:var(--color-primary);box-shadow:0 0 0 3px rgba(30,18,8,.08);}
+.review-form-textarea{min-height:96px;resize:vertical;}
+.review-form-rating{display:flex;gap:6px;align-items:center;}
+.review-form-rating button{background:none;border:none;padding:0;cursor:pointer;color:var(--gray-300);transition:color var(--ease-fast),transform var(--ease-fast);}
+.review-form-rating button:hover{transform:translateY(-1px);}
+.review-form-rating button.active{color:var(--color-accent-lt);}
+.review-form-actions{display:flex;gap:var(--space-3);margin-top:var(--space-5);flex-wrap:wrap;}
+.review-success{display:none;padding:var(--space-4);background:#ecfdf5;border:1px solid #a7f3d0;border-radius:var(--radius-md);color:#065f46;font-size:var(--text-sm);}
+.review-success strong{color:#064e3b;}
+
+/* ── Moderation ─────────────── */
+.review-moderation{max-width:960px;margin:var(--space-10) auto 0;padding:var(--space-6);background:rgba(30,18,8,.03);border-radius:var(--radius-lg);border:1px dashed var(--color-border);}
+.review-moderation h3{font:var(--weight-semibold)var(--text-lg)var(--font-display);margin:0 0 var(--space-4);color:var(--color-ink);}
+.review-moderation-list{display:grid;gap:var(--space-4);}
+.review-moderation-item{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);padding:var(--space-4);background:var(--color-surface);border-radius:var(--radius-md);border:1px solid var(--color-border);}
+.review-moderation-info{min-width:0;}
+.review-moderation-name{font-weight:var(--weight-semibold);font-size:var(--text-sm);color:var(--color-ink);}
+.review-moderation-meta{font-size:var(--text-xs);color:var(--color-muted);margin-top:2px;}
+.review-moderation-actions{display:flex;gap:var(--space-2);flex-shrink:0;}
+.review-badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:var(--radius-full);font-size:var(--text-xs);font-weight:var(--weight-medium);}
+.review-badge.approved{background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0;}
+.review-badge.rejected{background:#fef2f2;color:#991b1b;border:1px solid #fecaca;}
+.review-badge.pending{background:#fffbeb;color:#92400e;border:1px solid #fde68a;}
+.review-empty-mod{font-size:var(--text-sm);color:var(--color-muted);}
+
+/* ── About Enhancements ──────── */
+.about-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-3);margin-top:var(--space-5);}
+@media(min-width:768px){.about-stats{grid-template-columns:repeat(4,1fr);}}
+.about-stat{text-align:center;padding:var(--space-3);border-radius:var(--radius-md);border:1px solid var(--color-border);background:var(--color-surface);}
+.about-stat strong{display:block;font:var(--weight-bold) var(--text-xl) var(--font-display);color:var(--color-primary);}
+.about-stat span{font-size:var(--text-xs);color:var(--color-muted);}
+
+.value-grid{display:grid;grid-template-columns:1fr;gap:var(--space-3);margin-top:var(--space-5);}
+@media(min-width:640px){.value-grid{grid-template-columns:repeat(2,1fr);}}
+.value-card{display:flex;gap:var(--space-3);padding:var(--space-4);border-radius:var(--radius-lg);border:1px solid var(--color-border);background:var(--color-surface);}
+.value-card .value-icon{flex-shrink:0;width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-md);background:rgba(var(--color-primary-rgb),.08);color:var(--color-accent);}
+.value-card h4{font-size:var(--text-sm);margin-bottom:.25rem;}
+.value-card p{margin:0;font-size:var(--text-sm);color:var(--gray-700);line-height:var(--leading-relaxed);}
+
+/* ── Contact Form ─────────────── */
+.contact-wrap{max-width:720px;margin:0 auto;}
+.contact-form{display:grid;gap:var(--space-4);}
+.contact-form .form-row{display:grid;grid-template-columns:1fr;gap:var(--space-4);}
+@media(min-width:640px){.contact-form .form-row{grid-template-columns:repeat(2,1fr);}}
+.contact-success{display:none;padding:var(--space-4);border-radius:var(--radius-lg);background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0;margin-top:var(--space-4);}
+
+/* ── FAQ Enhancement ──────────── */
+.faq-tabs{display:flex;flex-wrap:wrap;gap:var(--space-2);justify-content:center;margin-bottom:var(--space-5);}
+.faq-tab{padding:.5rem .875rem;border-radius:var(--radius-md);border:1.5px solid var(--color-border);background:var(--color-surface);color:var(--gray-700);font-size:var(--text-sm);cursor:pointer;user-select:none;transition:all var(--ease-fast);}
+.faq-tab[aria-pressed="true"]{background:var(--color-primary);color:var(--white);border-color:var(--color-primary);}
+.faq-tab .count{margin-left:.35rem;font-size:var(--text-xs);opacity:.75;}
+
+/* ── Gallery ──────────────────── */
+.gallery-grid{display:grid;grid-template-columns:1fr;gap:var(--space-4);}
+@media(min-width:640px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:1024px){.gallery-grid{grid-template-columns:repeat(3,1fr);}}
+.gallery-item{border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--color-border);background:var(--color-surface);}
+.gallery-item img{width:100%;height:220px;object-fit:cover;display:block;}
+.gallery-item .gallery-caption{padding:var(--space-3) var(--space-4);font-size:var(--text-sm);color:var(--color-muted);}
+@media(min-width:768px){.gallery-item img{height:260px;}}
+
+/* ── Promo / News ─────────────── */
+.promo-grid{display:grid;grid-template-columns:1fr;gap:var(--space-5);}
+@media(min-width:768px){.promo-grid{grid-template-columns:repeat(3,1fr);}}
+.promo-card{padding:var(--space-5);background:var(--color-surface);border-radius:var(--radius-lg);border:1px solid var(--color-border);transition:all var(--ease-normal);}
+.promo-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--gold-300);}
+.promo-card h4{font-size:var(--text-base);margin-bottom:var(--space-2);}
+.promo-card p{margin:0;font-size:var(--text-sm);color:var(--gray-700);line-height:var(--leading-relaxed);}
+.promo-card .promo-meta{margin-top:var(--space-3);font-size:var(--text-xs);color:var(--color-muted);}
+
 /* ── FAQ ────────────────── */
 .faq-wrap{max-width:760px;margin:0 auto;}
 
@@ -239,12 +321,12 @@
 <body>
 <a href="#main-content" class="sr-only">Lewati ke konten utama</a>
 <main id="main-content">
-<!-- ═══════════ ARMADA ═══════════ -->
 <section class="section" id="armada"><div class="container">
 <h2 class="text-center reveal">Pilihan Armada Premium</h2>
 <p class="text-center reveal reveal-delay-1" style="color:var(--color-muted);margin-bottom:var(--space-8);">Geser untuk lihat semua unit — tersedia mulai 5 hingga 19 seat</p>
 
 <div class="carousel" aria-label="Daftar armada">
+  <!-- Avanza -->
   <article class="carousel-item card card-media reveal">
     <span class="badge badge-dark badge-corner">⭐ Favorit</span>
     <picture><source srcset="images/toyota-avanza-fwd-400w.webp 400w, images/toyota-avanza-fwd-800w.webp 800w" type="image/webp"/><source srcset="images/toyota-avanza-fwd-400w.jpg 400w, images/toyota-avanza-fwd-800w.jpg 800w" type="image/jpeg"/><img src="images/toyota-avanza-fwd.webp" alt="Toyota Avanza FWD" width="640" height="360" loading="lazy"/></picture>
@@ -257,6 +339,7 @@
     </div>
   </article>
 
+  <!-- Innova -->
   <article class="carousel-item card card-media reveal reveal-delay-1">
     <span class="badge badge-dark badge-corner">⭐ Best Seller</span>
     <picture><source srcset="images/innova-400w.webp 400w, images/innova-700w.webp 700w" type="image/webp"/><source srcset="images/innova-400w.jpg 400w, images/innova-700w.jpg 700w" type="image/jpeg"/><img src="images/innova.webp" alt="Innova Reborn" width="640" height="360" loading="lazy"/></picture>
@@ -269,6 +352,7 @@
     </div>
   </article>
 
+  <!-- Brio -->
   <article class="carousel-item card card-media reveal reveal-delay-2">
     <picture><source srcset="images/brio-400w.webp 400w, images/brio-800w.webp 800w" type="image/webp"/><source srcset="images/brio-400w.jpg 400w, images/brio-800w.jpg 800w" type="image/jpeg"/><img src="images/brio.webp" alt="Brio" width="640" height="360" loading="lazy"/></picture>
     <div class="card-body">
@@ -280,6 +364,7 @@
     </div>
   </article>
 
+  <!-- Hiace Premio -->
   <article class="carousel-item card card-media reveal reveal-delay-3">
     <span class="badge badge-gold badge-corner">💎 Premium</span>
     <picture><source srcset="images/hiace-premio-400w.webp 400w, images/hiace-premio-688w.webp 688w" type="image/webp"/><source srcset="images/hiace-premio-400w.jpg 400w, images/hiace-premio-688w.jpg 688w" type="image/jpeg"/><img src="images/hiace-premio.webp" alt="Hiace Premio" width="640" height="360" loading="lazy"/></picture>
@@ -292,6 +377,7 @@
     </div>
   </article>
 
+  <!-- Hiace Commuter -->
   <article class="carousel-item card card-media reveal">
     <picture><source srcset="images/hiace-commuter-400w.webp 400w, images/hiace-commuter-652w.webp 652w" type="image/webp"/><source srcset="images/hiace-commuter-400w.jpg 400w, images/hiace-commuter-652w.jpg 652w" type="image/jpeg"/><img src="images/hiace-commuter.webp" alt="Hiace Commuter" width="640" height="360" loading="lazy"/></picture>
     <div class="card-body">
@@ -303,6 +389,7 @@
     </div>
   </article>
 
+  <!-- Elf Giga -->
   <article class="carousel-item card card-media reveal">
     <picture><source srcset="images/elf-giga-400w.webp 400w, images/elf-giga-600w.webp 600w, images/elf-giga-900w.webp 900w" type="image/webp"/><source srcset="images/elf-giga-400w.jpg 400w, images/elf-giga-600w.jpg 600w, images/elf-giga-900w.jpg 900w" type="image/jpeg"/><img src="images/elf-giga.webp" alt="Elf Giga" width="640" height="360" loading="lazy"/></picture>
     <div class="card-body">
@@ -316,10 +403,11 @@
 </div>
 </div></section>
 
-<!-- ═══════════ TESTIMONI ═══════════ -->
+<!-- ═══════════ GALLERY ═══════════ -->
 <section class="section-sm" id="testimoni" style="background:var(--cream-100);"><div class="container">
 <h2 class="text-center reveal">Apa Kata Pelanggan Kami?</h2>
 <p class="text-center reveal reveal-delay-1" style="color:var(--color-muted);margin-bottom:var(--space-8);">Cerita nyata dari pelanggan yang sudah merasakan layanan KAM Transport</p>
+
 <div class="review-summary reveal" id="reviewSummary">
   <div>
     <div class="avg" id="avgRating">4.9</div>
@@ -327,7 +415,9 @@
     <div class="meta" id="reviewMeta">8 ulasan</div>
   </div>
 </div>
+
 <div class="review-grid" id="reviewGrid" role="list" aria-label="Daftar review pelanggan"></div>
+
 <div class="review-empty" id="reviewEmpty" hidden>
   <div class="empty-icon" aria-hidden="true">⭐</div>
   <h3>Belum ada review</h3>
@@ -335,13 +425,60 @@
 </div>
 </div></section>
 
+<div class="review-submit-wrap" id="reviewSubmitSection">
+  <div class="review-submit-card reveal">
+    <h3>Beri Review Pengalaman Anda</h3>
+    <p>Ceritakan pengalaman menggunakan layanan KAM Transport. Review Anda akan ditampilkan setelah diverifikasi admin.</p>
+    <form id="reviewSubmitForm" class="review-form-grid" novalidate>
+      <div class="review-form-group">
+        <label class="review-form-label" for="reviewName">Nama Lengkap</label>
+        <input class="review-form-input" id="reviewName" name="name" type="text" autocomplete="name" required placeholder="Nama Anda"/>
+      </div>
+      <div class="review-form-group">
+        <label class="review-form-label" for="reviewLocation">Kota Asal</label>
+        <input class="review-form-input" id="reviewLocation" name="location" type="text" autocomplete="off" required placeholder="Contoh: Surabaya"/>
+      </div>
+      <div class="review-form-group">
+        <label class="review-form-label">Rating</label>
+        <div class="review-form-rating" id="reviewRatingInput" role="radiogroup" aria-label="Rating">
+          <button type="button" data-value="1" aria-label="1 bintang">★</button>
+          <button type="button" data-value="2" aria-label="2 bintang">★</button>
+          <button type="button" data-value="3" aria-label="3 bintang">★</button>
+          <button type="button" data-value="4" aria-label="4 bintang">★</button>
+          <button type="button" data-value="5" aria-label="5 bintang">★</button>
+        </div>
+        <input type="hidden" id="reviewRatingValue" name="rating" value="0" required/>
+      </div>
+      <div class="review-form-group full">
+        <label class="review-form-label" for="reviewComment">Review</label>
+        <textarea class="review-form-textarea" id="reviewComment" name="comment" required placeholder="Bagaimana pengalaman Anda dengan KAM Transport?"></textarea>
+      </div>
+      <div class="review-form-actions full">
+        <button type="submit" class="btn btn-primary btn-lg">Kirim Review</button>
+        <button type="button" class="btn btn-outline" id="reviewResetBtn">Reset</button>
+      </div>
+    </form>
+    <div class="review-success" id="reviewSuccess" role="status" aria-live="polite">
+      <strong>Terima kasih!</strong> Review Anda sedang menunggu verifikasi admin dan akan muncul setelah disetujui.
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ OWNER MODERATION ═══════════ -->
+<div class="review-moderation" id="ownerPanel" hidden>
+  <h3>Moderation Review</h3>
+  <div class="review-moderation-list" id="moderationList"></div>
+  <p class="review-empty-mod" id="moderationEmpty">Tidak ada review yang menunggu verifikasi.</p>
+</div>
+
 <!-- ═══════════ FAQ ═══════════ -->
 <section class="section" id="faq"><div class="container">
 <h2 class="text-center reveal">Pertanyaan Umum</h2>
 <p class="text-center reveal reveal-delay-1" style="color:var(--color-muted);margin-bottom:var(--space-8);">Semua yang perlu Anda ketahui sebelum memesan</p>
+
 <div class="faq-wrap">
   <div class="accordion-item reveal"><button class="accordion-trigger" aria-expanded="false"><span>Bagaimana cara pemesanan?</span><svg class="accordion-icon icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="accordion-panel"><div class="accordion-panel-content">Anda bisa menghubungi kami via WhatsApp atau telepon. Sampaikan kebutuhan Anda (unit, tanggal, tujuan), dan kami akan bantu prosesnya dengan cepat.</div></div></div>
-  <div class="accordion-item reveal"><button class="accordion-trigger" aria-expanded="false"><span>Apakah harga sudah termasuk BBM?</span><svg class="accordion-icon icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="accordion-panel"><div class="accordion-panel-content">Untuk perjalanan dalam kota Malang, harga sudah termasuk BBM. Untuk luar kota, akan ada tambahan biaya BBM sesuai jarak tujuan yang akan dikonfirmasikan oleh tim kami.</div></div></div>
+  <div class="accordion-item reveal"><button class="accordion-trigger" aria-expanded="false"><span>Apakah harga sudah termasuk BBM?</span><svg class="accordion-icon icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="accordion-panel"><div class="accordion-panel-content">Untuk perjalanan dalam kota Malang, harga sudah termasuk BBM. Untuk luar kota, akan ada tambahan biaya BBM sesuai jarak tujuan yang akan dikonfirmasi oleh tim kami.</div></div></div>
   <div class="accordion-item reveal"><button class="accordion-trigger" aria-expanded="false"><span>Berapa lama minimal sewa?</span><svg class="accordion-icon icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="accordion-panel"><div class="accordion-panel-content">Minimal sewa adalah 1 hari (24 jam). Untuk perjalanan di bawah 12 jam, tetap dikenakan biaya 1 hari penuh.</div></div></div>
   <div class="accordion-item reveal"><button class="accordion-trigger" aria-expanded="false"><span>Apakah bisa cancel atau ubah jadwal?</span><svg class="accordion-icon icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="accordion-panel"><div class="accordion-panel-content">Bisa. Cancel H-3 sebelum tanggal sewa dikenakan biaya admin Rp 50.000. Cancel H-1 dikenakan 50% dari total biaya. Ubah jadwal fleksibel sesuai ketersediaan unit.</div></div></div>
   <div class="accordion-item reveal"><button class="accordion-trigger" aria-expanded="false"><span>Bagaimana metode pembayaran?</span><svg class="accordion-icon icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="accordion-panel"><div class="accordion-panel-content">Pembayaran dilakukan via transfer bank. DP 50% saat pemesanan, pelunasan sebelum berangkat. Konfirmasi pembayaran via WhatsApp.</div></div></div>
@@ -349,12 +486,643 @@
 </div>
 </div></section>
 
+<!-- form Hubungi Kami dihapus; kontak melalui form reservasi + floating WA -->
+
 <!-- ═══════════ FINAL CTA ═══════════ -->
 <section class="cta-section reveal"><div class="container">
 <h2>Siap untuk Perjalanan Nyaman?</h2>
 <p>Hubungi kami sekarang untuk reservasi. Tim kami siap membantu kapan saja.</p>
 <button class="btn btn-wa btn-xl open-modal">Reservasi via WhatsApp</button>
 </div></section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="footer" id="kontak" role="contentinfo"><div class="container">
+<div class="footer-grid">
+  <div>
+    <h2>KAM Transport</h2>
+    <p style="font-size:var(--text-sm);">Solusi transportasi premium di Malang. Sejak 2021.</p>
+  </div>
+  <div>
+    <h3>Navigasi</h3>
+    <ul><li><a href="#tentang">Tentang Kami</a></li><li><a href="#armada">Armada</a></li><li><a href="#testimoni">Testimoni</a></li><li><a href="#promo">Promo</a></li><li><a href="#galeri">Galeri</a></li><li><a href="#faq">FAQ</a></li></ul>
+    <p style="margin-top:var(--space-3);"><a href="#" id="ownerAccessLink" style="font-size:var(--text-xs);color:rgba(255,255,255,.25);text-decoration:none;" aria-label="Owner access — klik 7 kali">Admin</a></p>
+  </div>
+  <div>
+    <h3>Kontak</h3>
+    <ul>
+      <li>
+        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:.25rem;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <a href="https://wa.me/62895403826492" target="_blank" rel="noopener noreferrer">+62 895-4038-26492</a>
+      </li>
+      <li>
+        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:.25rem;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <a href="https://maps.google.com/?q=4MRG%2BXG3%2C+Singosari+Malang" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">4MRG+XG3, Jl. Gondang Suko, Randuangung, Kec. Singosari, Kabupaten Malang, Jawa Timur 65153</a>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <h3>Ikuti Kami</h3>
+    <ul>
+      <li><a href="https://www.instagram.com/kam_transport" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+      <li><a href="https://www.tiktok.com/@karya_mudaabadi" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+    </ul>
+    <div style="margin-top:var(--space-4);border-radius:var(--radius-md);overflow:hidden;border:1px solid rgba(255,255,255,.08);">
+      <iframe title="Lokasi KAM Transport" src="https://www.google.com/maps?q=4MRG%2BXG3+Singosari+Malang&output=embed" width="100%" height="140" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer"></iframe>
+    </div>
+  </div>
+</div>
+<div class="footer-bottom"><p style="font-size:var(--text-xs);color:rgba(255,255,255,.35);">© 2021–2026 Karya Muda Abadi Transport. All rights reserved.</p></div>
+</div></footer>
+
+<!-- ═══════════ OWNER PASSWORD MODAL ═══════════ -->
+<div id="ownerModalOverlay" class="modal-overlay" aria-hidden="true"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="ownerModalTitle">
+<div class="modal-header">
+  <h3 id="ownerModalTitle">Owner Access</h3>
+  <button class="modal-close" aria-label="Tutup">✕</button>
+</div>
+<div class="form-group">
+  <label class="form-label" for="ownerPassword">Password</label>
+  <input class="form-input" id="ownerPassword" type="password" autocomplete="current-password" required placeholder="Masukkan password owner"/>
+  <p class="form-helper">Akses owner terbatas untuk moderasi. Jika lupa password, hubungi administrator sistem untuk reset.</p>
+</div>
+</div></div>
+
+<!-- ═══════════ MODAL ═══════════ -->
+<div id="modalOverlay" class="modal-overlay" aria-hidden="true"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+<div class="modal-header">
+  <h3 id="modalTitle">Form Reservasi</h3>
+  <button class="modal-close" aria-label="Tutup">✕</button>
+</div>
+<form id="reservasiForm">
+  <div class="form-group">
+    <label class="form-label" for="unit">Unit Armada</label>
+    <input class="form-input" type="text" id="unit" name="unit" placeholder="Contoh: Innova Reborn" autocomplete="off"/>
+    <span class="form-helper">Pilih dari armada atau ketik manual</span>
+  </div>
+  <div class="form-group">
+    <span class="form-label">Kategori Perjalanan</span>
+    <div class="radio-group">
+      <label class="radio-option"><input type="radio" name="kategori" value="city_tour" checked/>City Tour (Dalam Kota)</label>
+      <label class="radio-option"><input type="radio" name="kategori" value="luar_kota"/>Luar Kota</label>
+    </div>
+    <span class="form-helper">City Tour sudah termasuk BBM. Luar kota ada tambahan biaya BBM sesuai jarak.</span>
+  </div>
+  <div class="form-group hidden" id="tujuanWrap">
+    <label class="form-label" for="tujuan">Tujuan (wajib untuk luar kota)</label>
+    <input class="form-input" type="text" id="tujuan" name="tujuan" placeholder="Tujuan anda" autocomplete="off"/>
+  </div>
+  <div class="form-row">
+    <div class="form-group"><label class="form-label" for="tanggal_mulai">Mulai</label><input class="form-input" type="date" id="tanggal_mulai" name="tanggal_mulai" required/></div>
+    <div class="form-group"><label class="form-label" for="tanggal_selesai">Selesai</label><input class="form-input" type="date" id="tanggal_selesai" name="tanggal_selesai" required/></div>
+  </div>
+  <div class="form-group">
+    <label class="form-label" for="nama">Nama Pemesan</label>
+    <input class="form-input" type="text" id="nama" name="nama" placeholder="Nama lengkap" required/>
+  </div>
+  <button type="submit" class="btn btn-wa btn-block btn-lg">Kirim via WhatsApp</button>
+  <p class="form-helper" style="margin-top:var(--space-4);">Harga sudah termasuk mobil, supir, dan BBM untuk dalam kota. Luar kota ada tambahan biaya BBM sesuai jarak.</p>
+</form>
+</div></div>
+
+<!-- ═══════════ FLOATING WA ═══════════ -->
+<a class="wa-fab" href="https://wa.me/62895403826492?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20layanan%20KAM%20Transport." target="_blank" rel="noopener noreferrer" aria-label="Chat WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+</a>
+
+<!-- ═══════════ JS ═══════════ -->
+<script>
+const WA='62895403826492';
+const modal=document.getElementById('modalOverlay');
+const unitInput=document.getElementById('unit');
+
+/* ── Date min ──────────────── */
+(function(){
+  const today=new Date().toISOString().slice(0,10);
+  document.getElementById('tanggal_mulai').min=today;
+  document.getElementById('tanggal_selesai').min=today;
+})();
+
+/* ── Modal ──────────────────── */
+function openModal(unit=''){
+  modal.classList.add('open');modal.setAttribute('aria-hidden','false');
+  unitInput.value=unit||'';document.body.style.overflow='hidden';
+}
+function closeModal(){
+  modal.classList.remove('open');modal.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+}
+document.querySelectorAll('.open-modal').forEach(el=>el.addEventListener('click',()=>openModal('')));
+document.querySelectorAll('.pesan-btn').forEach(btn=>btn.addEventListener('click',()=>openModal(btn.dataset.unit||'')));
+document.querySelector('.modal-close').addEventListener('click',closeModal);
+modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+/* ── Radio ──────────────────── */
+document.querySelectorAll('input[name="kategori"]').forEach(r=>r.addEventListener('change',()=>{
+  const isLuar=document.querySelector('input[name="kategori"]:checked').value==='luar_kota';
+  document.getElementById('tujuanWrap').classList.toggle('hidden',!isLuar);
+  document.getElementById('tujuan').required=isLuar;
+}));
+
+/* ── Submit ─────────────────── */
+document.getElementById('reservasiForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const d=new FormData(e.target);
+  const unit=d.get('unit').trim(),kat=d.get('kategori'),tujuan=d.get('tujuan').trim();
+  const mulai=d.get('tanggal_mulai'),selesai=d.get('tanggal_selesai'),nama=d.get('nama').trim();
+  if(!unit||!mulai||!selesai||!nama)return alert('Lengkapi: Unit, Tanggal, dan Nama.');
+  if(kat==='luar_kota'&&!tujuan)return alert('Tujuan wajib untuk Luar Kota.');
+  let txt='Halo, saya mau reservasi '+unit;
+  txt+=kat==='city_tour'?' (City Tour - Dalam Kota Malang)':' (Luar Kota Malang - tujuan: '+tujuan+')';
+  txt+=' untuk tanggal '+mulai+' - '+selesai+', atas nama '+nama+'.';
+  if(kat==='luar_kota')txt+=' Mohon info total biaya termasuk BBM tambahan.';
+  window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(txt),'_blank');
+});
+
+/* ── Accordion ──────────────── */
+document.querySelectorAll('.accordion-trigger').forEach(btn=>{btn.addEventListener('click',()=>{
+  const item=btn.closest('.accordion-item'),panel=item.querySelector('.accordion-panel');
+  const open=item.classList.contains('open');
+  document.querySelectorAll('.accordion-item.open').forEach(i=>{i.classList.remove('open');i.querySelector('.accordion-trigger').setAttribute('aria-expanded','false');i.querySelector('.accordion-panel').style.maxHeight='0';});
+  if(!open){item.classList.add('open');btn.setAttribute('aria-expanded','true');panel.style.maxHeight=panel.scrollHeight+'px';}
+});});
+
+/* ── Counter ────────────────── */
+function animateCounters(){
+  document.querySelectorAll('.counter-num:not(.counted)').forEach(el=>{
+    const target=parseInt(el.dataset.target)||0;
+    const duration=1800,start=Date.now();el.classList.add('counted');
+    (function tick(){
+      const p=Math.min((Date.now()-start)/duration,1);
+      const eased=1-Math.pow(1-p,3);
+      el.textContent=p<1?Math.floor(eased*target):target+'+';
+      if(p<1)requestAnimationFrame(tick);
+    })();
+  });
+}
+
+/* ── Reveal ─────────────────── */
+const revObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revObs.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
+
+const statsObs=new IntersectionObserver((entries,obs)=>{entries.forEach(e=>{if(e.isIntersecting){animateCounters();obs.unobserve(e.target);}});},{threshold:.3});
+const statsEl=document.querySelector('.trust-grid');if(statsEl)statsObs.observe(statsEl);
+
+/* ── Reviews ─────────────────── */
+const reviewSeed=[
+  {id:1,name:"Bpk. Ahmad",rating:5,comment:"Pelayanannya sangat memuaskan. Driver ramah dan tahu jalur wisata di Malang. Pastinya akan pakai lagi!",date:"2026-06-12",location:"Surabaya",verified:true},
+  {id:2,name:"Ibu Rina",rating:5,comment:"Sewa Innova untuk liburan keluarga. Mobil bersih, driver sopan, harga terjangkau. Anak-anak senang!",date:"2026-05-28",location:"Jakarta",verified:true},
+  {id:3,name:"Mas Budi",rating:5,comment:"Sudah beberapa kali pakai jasa KAM Transport untuk kebutuhan dinas. Selalu tepat waktu dan profesional.",date:"2026-05-15",location:"Malang",verified:true},
+  {id:4,name:"Ibu Sari",rating:4,comment:"Perjalanan ke Bromo sangat nyaman. Hanya sedikit keterlambatan karena cuaca, tapi tetap aman dan terorganisir.",date:"2026-04-30",location:"Bandung",verified:true},
+  {id:5,name:"Pak Andi",rating:5,comment:"Armada terawat dan harga transparan. Tidak ada biaya tersembunyi. Recommended untuk rombongan kantor.",date:"2026-04-18",location:"Surabaya",verified:false},
+  {id:6,name:"Ibu Dewi",rating:5,comment:"Driver friendly dan ramah. Perjalanan ke Pasuruan lancar tanpa hambatan. Pasti repeat order!",date:"2026-03-22",location:"Malang",verified:true},
+  {id:7,name:"Mas Rizki",rating:4,comment:"Pelayanan oke, kendaraan bersih. Cuma harap bisa tambah opsi pembayaran non-tunai di loket.",date:"2026-03-05",location:"Jakarta",verified:true},
+  {id:8,name:"Ibu Melati",rating:5,comment:"Liburan keluarga ke Jatim Park jadi lebih berkesan. Driver sabar menunggu dan selalu membantu.",date:"2026-02-14",location:"Surabaya",verified:true}
+];
+
+function lsKey(k){return 'kam-review-'+k;}
+function loadReviews(){
+  try{
+    const raw=localStorage.getItem(lsKey('queue'));return raw?JSON.parse(raw):[];
+  }catch{return[];}
+}
+function saveReviews(list){localStorage.setItem(lsKey('queue'),JSON.stringify(list));}
+function loadSettings(){try{const raw=localStorage.getItem(lsKey('settings'));return raw?JSON.parse(raw):{passwordHash: (window.KAM_CONFIG&&window.KAM_CONFIG.ownerPasswordHash)||''};}catch{return{passwordHash:(window.KAM_CONFIG&&window.KAM_CONFIG.ownerPasswordHash)||''};}}
+function saveSettings(s){localStorage.setItem(lsKey('settings'),JSON.stringify(s));}
+function fmtDate(s){const d=new Date(s+'T00:00:00');return d.toLocaleDateString('id-ID',{day:'numeric',month:'long',year:'numeric'});}
+function stars(n){let h='';for(let i=1;i<=5;i++){h+=`<svg class="icon-sm" viewBox="0 0 24 24" ${i<=n?'fill="var(--color-accent-lt)" stroke="var(--color-accent)" stroke-width="1.5"':'fill="none" stroke="var(--gray-300)" stroke-width="1.5"'}><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`;}return h;}
+
+function buildCard(r){
+  return `<article class="review-card reveal" role="listitem">
+    <div class="review-header">
+      <div class="review-author">
+        <div class="review-avatar" aria-hidden="true">${(r.name||'').charAt(0)||'?'}</div>
+        <div>
+          <div class="review-name">${r.name||'Pelanggan'}</div>
+          <div class="review-location">${[r.location].filter(Boolean).join(', ')}</div>
+        </div>
+      </div>
+      ${r.verified?'<span class="review-verified">✔ Terverifikasi</span>':''}
+    </div>
+    <div class="review-stars" aria-label="Rating ${r.rating} dari 5">${stars(r.rating||0)}</div>
+    <p class="review-body">${r.comment||''}</p>
+    <div class="review-footer">
+      <span>${fmtDate(r.date)}</span>
+      <span>Rating ${r.rating}/5</span>
+    </div>
+  </article>`;
+}
+function renderReviews(){
+  const grid=document.getElementById('reviewGrid');
+  const empty=document.getElementById('reviewEmpty');
+  const summary=document.getElementById('reviewSummary');
+  if(!grid)return;
+  const queue=loadReviews().filter(r=>r.status==='approved');
+  const all=[...reviewSeed,...queue];
+  if(!all.length){if(summary)summary.hidden=true;grid.hidden=true;if(empty)empty.hidden=false;return;}
+  if(summary)summary.hidden=false;grid.hidden=false;if(empty)empty.hidden=true;
+  const avg=all.reduce((a,b)=>a+(b.rating||0),0)/all.length;
+  const avgEl=document.getElementById('avgRating');if(avgEl)avgEl.textContent=avg.toFixed(1);
+  const meta=document.getElementById('reviewMeta');if(meta)meta.textContent=`${all.length} ulasan`;
+  const avgStars=document.getElementById('avgStars');if(avgStars)avgStars.innerHTML=stars(Math.round(avg));
+  grid.innerHTML=all.map(buildCard).join('');
+  if('IntersectionObserver' in window){const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -30px 0px'});grid.querySelectorAll('.reveal').forEach(el=>obs.observe(el));}else{grid.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));}
+}
+
+/* ── Review Submit ───────────── */
+const ratingInput=document.getElementById('reviewRatingInput');
+const ratingValue=document.getElementById('reviewRatingValue');
+let currentRating=0;
+ratingInput.querySelectorAll('button').forEach(btn=>{btn.addEventListener('click',()=>{
+  currentRating=parseInt(btn.dataset.value||'0');ratingValue.value=currentRating;
+  ratingInput.querySelectorAll('button').forEach(b=>b.classList.toggle('active',parseInt(b.dataset.value||'0')<=currentRating));
+});});
+document.getElementById('reviewSubmitForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const name=document.getElementById('reviewName').value.trim();
+  const location=document.getElementById('reviewLocation').value.trim();
+  const comment=document.getElementById('reviewComment').value.trim();
+  const rating=parseInt(ratingValue.value||'0');
+  if(!name||!location||!rating||!comment)return alert('Lengkapi: Nama, Kota, Rating, dan Review.');
+  const queue=loadReviews();
+  queue.unshift({id:Date.now(),name,rating,comment,date:new Date().toISOString().slice(0,10),location,status:'pending',verified:false});
+  saveReviews(queue);
+  e.target.reset();ratingValue.value='0';currentRating=0;ratingInput.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
+  const success=document.getElementById('reviewSuccess');if(success){success.style.display='block';setTimeout(()=>{success.style.display='none';},4000);}
+  renderModeration();
+});
+document.getElementById('reviewResetBtn').addEventListener('click',()=>{
+  document.getElementById('reviewSubmitForm').reset();ratingValue.value='0';currentRating=0;ratingInput.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
+});
+
+/* ── Owner Moderation ────────── */
+const ownerPanel=document.getElementById('ownerPanel');
+const ownerOverlay=document.getElementById('ownerModalOverlay');
+const ownerPassword=document.getElementById('ownerPassword');
+const ownerLink=document.getElementById('ownerAccessLink');
+function openOwner(){ownerOverlay.classList.add('open');ownerOverlay.setAttribute('aria-hidden','false');ownerPassword.value='';document.body.style.overflow='hidden';}
+function closeOwner(){ownerOverlay.classList.remove('open');ownerOverlay.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+if(ownerLink){let ownerClicks=0, ownerTimer=null;ownerLink.addEventListener('click',e=>{e.preventDefault();ownerClicks++;ownerLink.style.color='rgba(255,255,255,.55)';if(ownerTimer)clearTimeout(ownerTimer);ownerTimer=setTimeout(()=>{ownerClicks=0;ownerLink.style.color='rgba(255,255,255,.25)';},1500);if(ownerClicks>=7){ownerClicks=0;clearTimeout(ownerTimer);ownerLink.style.color='rgba(255,255,255,.25)';openOwner();}});}
+document.querySelector('#ownerModalOverlay .modal-close').addEventListener('click',closeOwner);
+ownerOverlay.addEventListener('click',e=>{if(e.target===ownerOverlay)closeOwner();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeOwner();});
+ownerPassword.addEventListener('keydown',async e=>{if(e.key==='Enter'){
+  const settings=loadSettings();
+  let hash='';
+  try{const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(ownerPassword.value));hash=Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');}catch{}
+  if(hash===settings.passwordHash||ownerPassword.value===settings.password){closeOwner();ownerPanel.hidden=false;renderModeration();}
+  else{alert('Password salah.');ownerPassword.value='';}
+}});
+function renderModeration(){
+  const list=document.getElementById('moderationList');
+  const empty=document.getElementById('moderationEmpty');
+  const queue=loadReviews().filter(r=>r.status==='pending');
+  if(!list)return;
+  if(!queue.length){list.innerHTML='';if(empty)empty.hidden=false;return;}
+  if(empty)empty.hidden=true;
+  list.innerHTML=queue.map(r=>`<div class="review-moderation-item" data-id="${r.id}">
+    <div class="review-moderation-info">
+      <div class="review-moderation-name">${r.name||'Pelanggan'} · ${[r.location].filter(Boolean).join(', ')}</div>
+      <div class="review-moderation-meta">${fmtDate(r.date)} · Rating ${r.rating}/5</div>
+      <div style="font-size:var(--text-xs);color:var(--color-muted);margin-top:4px;">${(r.comment||'').slice(0,140)}${(r.comment||'').length>140?'...':''}</div>
+    </div>
+    <div class="review-moderation-actions">
+      <span class="review-badge pending">Menunggu</span>
+      <button class="btn btn-primary btn-sm mod-approve">Setujui</button>
+      <button class="btn btn-outline btn-sm mod-reject">Tolak</button>
+      <button class="btn btn-outline btn-sm mod-hapus">Hapus</button>
+    </div>
+  </div>`).join('');
+  list.querySelectorAll('.mod-approve').forEach(btn=>btn.addEventListener('click',()=>{
+    const id=parseInt(btn.closest('.review-moderation-item').dataset.id);
+    const items=loadReviews();const it=items.find(x=>x.id===id);if(it){it.status='approved';saveReviews(items);renderModeration();renderReviews();}
+  }));
+  list.querySelectorAll('.mod-reject').forEach(btn=>btn.addEventListener('click',()=>{
+    const id=parseInt(btn.closest('.review-moderation-item').dataset.id);
+    const items=loadReviews();const it=items.find(x=>x.id===id);if(it){it.status='rejected';saveReviews(items);renderModeration();}
+  }));
+  list.querySelectorAll('.mod-hapus').forEach(btn=>btn.addEventListener('click',()=>{
+    const id=parseInt(btn.closest('.review-moderation-item').dataset.id);
+    saveReviews(loadReviews().filter(x=>x.id!==id));renderModeration();
+  }));
+}
+document.addEventListener('DOMContentLoaded',()=>{renderReviews();renderModeration();});
+</script>
+
+<!-- cta missing -->
+<footer class="footer" id="kontak" role="contentinfo"><div class="container">
+<div class="footer-grid">
+  <div>
+    <h2>KAM Transport</h2>
+    <p style="font-size:var(--text-sm);">Solusi transportasi premium di Malang. Sejak 2021.</p>
+  </div>
+  <div>
+    <h3>Navigasi</h3>
+    <ul><li><a href="#tentang">Tentang Kami</a></li><li><a href="#armada">Armada</a></li><li><a href="#testimoni">Testimoni</a></li><li><a href="#promo">Promo</a></li><li><a href="#galeri">Galeri</a></li><li><a href="#faq">FAQ</a></li></ul>
+    <p style="margin-top:var(--space-3);"><a href="#" id="ownerAccessLink" style="font-size:var(--text-xs);color:rgba(255,255,255,.25);text-decoration:none;" aria-label="Owner access — klik 7 kali">Admin</a></p>
+  </div>
+  <div>
+    <h3>Kontak</h3>
+    <ul>
+      <li>
+        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:.25rem;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <a href="https://wa.me/62895403826492" target="_blank" rel="noopener noreferrer">+62 895-4038-26492</a>
+      </li>
+      <li>
+        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:.25rem;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <a href="https://maps.google.com/?q=4MRG%2BXG3%2C+Singosari+Malang" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">4MRG+XG3, Jl. Gondang Suko, Randuangung, Kec. Singosari, Kabupaten Malang, Jawa Timur 65153</a>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <h3>Ikuti Kami</h3>
+    <ul>
+      <li><a href="https://www.instagram.com/kam_transport" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+      <li><a href="https://www.tiktok.com/@karya_mudaabadi" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+    </ul>
+    <div style="margin-top:var(--space-4);border-radius:var(--radius-md);overflow:hidden;border:1px solid rgba(255,255,255,.08);">
+      <iframe title="Lokasi KAM Transport" src="https://www.google.com/maps?q=4MRG%2BXG3+Singosari+Malang&output=embed" width="100%" height="140" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer"></iframe>
+    </div>
+  </div>
+</div>
+<div class="footer-bottom"><p style="font-size:var(--text-xs);color:rgba(255,255,255,.35);">© 2021–2026 Karya Muda Abadi Transport. All rights reserved.</p></div>
+</div></footer>
+
+<!-- ═══════════ OWNER PASSWORD MODAL ═══════════ -->
+<div id="ownerModalOverlay" class="modal-overlay" aria-hidden="true"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="ownerModalTitle">
+<div class="modal-header">
+  <h3 id="ownerModalTitle">Owner Access</h3>
+  <button class="modal-close" aria-label="Tutup">✕</button>
+</div>
+<div class="form-group">
+  <label class="form-label" for="ownerPassword">Password</label>
+  <input class="form-input" id="ownerPassword" type="password" autocomplete="current-password" required placeholder="Masukkan password owner"/>
+  <p class="form-helper">Akses owner terbatas untuk moderasi. Jika lupa password, hubungi administrator sistem untuk reset.</p>
+</div>
+</div></div>
+
+<!-- ═══════════ MODAL ═══════════ -->
+<div id="modalOverlay" class="modal-overlay" aria-hidden="true"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+<div class="modal-header">
+  <h3 id="modalTitle">Form Reservasi</h3>
+  <button class="modal-close" aria-label="Tutup">✕</button>
+</div>
+<form id="reservasiForm">
+  <div class="form-group">
+    <label class="form-label" for="unit">Unit Armada</label>
+    <input class="form-input" type="text" id="unit" name="unit" placeholder="Contoh: Innova Reborn" autocomplete="off"/>
+    <span class="form-helper">Pilih dari armada atau ketik manual</span>
+  </div>
+  <div class="form-group">
+    <span class="form-label">Kategori Perjalanan</span>
+    <div class="radio-group">
+      <label class="radio-option"><input type="radio" name="kategori" value="city_tour" checked/>City Tour (Dalam Kota)</label>
+      <label class="radio-option"><input type="radio" name="kategori" value="luar_kota"/>Luar Kota</label>
+    </div>
+    <span class="form-helper">City Tour sudah termasuk BBM. Luar kota ada tambahan biaya BBM sesuai jarak.</span>
+  </div>
+  <div class="form-group hidden" id="tujuanWrap">
+    <label class="form-label" for="tujuan">Tujuan (wajib untuk luar kota)</label>
+    <input class="form-input" type="text" id="tujuan" name="tujuan" placeholder="Tujuan anda" autocomplete="off"/>
+  </div>
+  <div class="form-row">
+    <div class="form-group"><label class="form-label" for="tanggal_mulai">Mulai</label><input class="form-input" type="date" id="tanggal_mulai" name="tanggal_mulai" required/></div>
+    <div class="form-group"><label class="form-label" for="tanggal_selesai">Selesai</label><input class="form-input" type="date" id="tanggal_selesai" name="tanggal_selesai" required/></div>
+  </div>
+  <div class="form-group">
+    <label class="form-label" for="nama">Nama Pemesan</label>
+    <input class="form-input" type="text" id="nama" name="nama" placeholder="Nama lengkap" required/>
+  </div>
+  <button type="submit" class="btn btn-wa btn-block btn-lg">Kirim via WhatsApp</button>
+  <p class="form-helper" style="margin-top:var(--space-4);">Harga sudah termasuk mobil, supir, dan BBM untuk dalam kota. Luar kota ada tambahan biaya BBM sesuai jarak.</p>
+</form>
+</div></div>
+
+<!-- ═══════════ FLOATING WA ═══════════ -->
+<a class="wa-fab" href="https://wa.me/62895403826492?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20layanan%20KAM%20Transport." target="_blank" rel="noopener noreferrer" aria-label="Chat WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+</a>
+
+<!-- ═══════════ JS ═══════════ -->
+<script>
+const WA='62895403826492';
+const modal=document.getElementById('modalOverlay');
+const unitInput=document.getElementById('unit');
+
+/* ── Date min ──────────────── */
+(function(){
+  const today=new Date().toISOString().slice(0,10);
+  document.getElementById('tanggal_mulai').min=today;
+  document.getElementById('tanggal_selesai').min=today;
+})();
+
+/* ── Modal ──────────────────── */
+function openModal(unit=''){
+  modal.classList.add('open');modal.setAttribute('aria-hidden','false');
+  unitInput.value=unit||'';document.body.style.overflow='hidden';
+}
+function closeModal(){
+  modal.classList.remove('open');modal.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+}
+document.querySelectorAll('.open-modal').forEach(el=>el.addEventListener('click',()=>openModal('')));
+document.querySelectorAll('.pesan-btn').forEach(btn=>btn.addEventListener('click',()=>openModal(btn.dataset.unit||'')));
+document.querySelector('.modal-close').addEventListener('click',closeModal);
+modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+/* ── Radio ──────────────────── */
+document.querySelectorAll('input[name="kategori"]').forEach(r=>r.addEventListener('change',()=>{
+  const isLuar=document.querySelector('input[name="kategori"]:checked').value==='luar_kota';
+  document.getElementById('tujuanWrap').classList.toggle('hidden',!isLuar);
+  document.getElementById('tujuan').required=isLuar;
+}));
+
+/* ── Submit ─────────────────── */
+document.getElementById('reservasiForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const d=new FormData(e.target);
+  const unit=d.get('unit').trim(),kat=d.get('kategori'),tujuan=d.get('tujuan').trim();
+  const mulai=d.get('tanggal_mulai'),selesai=d.get('tanggal_selesai'),nama=d.get('nama').trim();
+  if(!unit||!mulai||!selesai||!nama)return alert('Lengkapi: Unit, Tanggal, dan Nama.');
+  if(kat==='luar_kota'&&!tujuan)return alert('Tujuan wajib untuk Luar Kota.');
+  let txt='Halo, saya mau reservasi '+unit;
+  txt+=kat==='city_tour'?' (City Tour - Dalam Kota Malang)':' (Luar Kota Malang - tujuan: '+tujuan+')';
+  txt+=' untuk tanggal '+mulai+' - '+selesai+', atas nama '+nama+'.';
+  if(kat==='luar_kota')txt+=' Mohon info total biaya termasuk BBM tambahan.';
+  window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(txt),'_blank');
+});
+
+/* ── Accordion ──────────────── */
+document.querySelectorAll('.accordion-trigger').forEach(btn=>{btn.addEventListener('click',()=>{
+  const item=btn.closest('.accordion-item'),panel=item.querySelector('.accordion-panel');
+  const open=item.classList.contains('open');
+  document.querySelectorAll('.accordion-item.open').forEach(i=>{i.classList.remove('open');i.querySelector('.accordion-trigger').setAttribute('aria-expanded','false');i.querySelector('.accordion-panel').style.maxHeight='0';});
+  if(!open){item.classList.add('open');btn.setAttribute('aria-expanded','true');panel.style.maxHeight=panel.scrollHeight+'px';}
+});});
+
+/* ── Counter ────────────────── */
+function animateCounters(){
+  document.querySelectorAll('.counter-num:not(.counted)').forEach(el=>{
+    const target=parseInt(el.dataset.target)||0;
+    const duration=1800,start=Date.now();el.classList.add('counted');
+    (function tick(){
+      const p=Math.min((Date.now()-start)/duration,1);
+      const eased=1-Math.pow(1-p,3);
+      el.textContent=p<1?Math.floor(eased*target):target+'+';
+      if(p<1)requestAnimationFrame(tick);
+    })();
+  });
+}
+
+/* ── Reveal ─────────────────── */
+const revObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revObs.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
+
+const statsObs=new IntersectionObserver((entries,obs)=>{entries.forEach(e=>{if(e.isIntersecting){animateCounters();obs.unobserve(e.target);}});},{threshold:.3});
+const statsEl=document.querySelector('.trust-grid');if(statsEl)statsObs.observe(statsEl);
+
+/* ── Reviews ─────────────────── */
+const reviewSeed=[
+  {id:1,name:"Bpk. Ahmad",rating:5,comment:"Pelayanannya sangat memuaskan. Driver ramah dan tahu jalur wisata di Malang. Pastinya akan pakai lagi!",date:"2026-06-12",location:"Surabaya",verified:true},
+  {id:2,name:"Ibu Rina",rating:5,comment:"Sewa Innova untuk liburan keluarga. Mobil bersih, driver sopan, harga terjangkau. Anak-anak senang!",date:"2026-05-28",location:"Jakarta",verified:true},
+  {id:3,name:"Mas Budi",rating:5,comment:"Sudah beberapa kali pakai jasa KAM Transport untuk kebutuhan dinas. Selalu tepat waktu dan profesional.",date:"2026-05-15",location:"Malang",verified:true},
+  {id:4,name:"Ibu Sari",rating:4,comment:"Perjalanan ke Bromo sangat nyaman. Hanya sedikit keterlambatan karena cuaca, tapi tetap aman dan terorganisir.",date:"2026-04-30",location:"Bandung",verified:true},
+  {id:5,name:"Pak Andi",rating:5,comment:"Armada terawat dan harga transparan. Tidak ada biaya tersembunyi. Recommended untuk rombongan kantor.",date:"2026-04-18",location:"Surabaya",verified:false},
+  {id:6,name:"Ibu Dewi",rating:5,comment:"Driver friendly dan ramah. Perjalanan ke Pasuruan lancar tanpa hambatan. Pasti repeat order!",date:"2026-03-22",location:"Malang",verified:true},
+  {id:7,name:"Mas Rizki",rating:4,comment:"Pelayanan oke, kendaraan bersih. Cuma harap bisa tambah opsi pembayaran non-tunai di loket.",date:"2026-03-05",location:"Jakarta",verified:true},
+  {id:8,name:"Ibu Melati",rating:5,comment:"Liburan keluarga ke Jatim Park jadi lebih berkesan. Driver sabar menunggu dan selalu membantu.",date:"2026-02-14",location:"Surabaya",verified:true}
+];
+
+function lsKey(k){return 'kam-review-'+k;}
+function loadReviews(){
+  try{
+    const raw=localStorage.getItem(lsKey('queue'));return raw?JSON.parse(raw):[];
+  }catch{return[];}
+}
+function saveReviews(list){localStorage.setItem(lsKey('queue'),JSON.stringify(list));}
+function loadSettings(){try{const raw=localStorage.getItem(lsKey('settings'));return raw?JSON.parse(raw):{passwordHash: (window.KAM_CONFIG&&window.KAM_CONFIG.ownerPasswordHash)||''};}catch{return{passwordHash:(window.KAM_CONFIG&&window.KAM_CONFIG.ownerPasswordHash)||''};}}
+function saveSettings(s){localStorage.setItem(lsKey('settings'),JSON.stringify(s));}
+function fmtDate(s){const d=new Date(s+'T00:00:00');return d.toLocaleDateString('id-ID',{day:'numeric',month:'long',year:'numeric'});}
+function stars(n){let h='';for(let i=1;i<=5;i++){h+=`<svg class="icon-sm" viewBox="0 0 24 24" ${i<=n?'fill="var(--color-accent-lt)" stroke="var(--color-accent)" stroke-width="1.5"':'fill="none" stroke="var(--gray-300)" stroke-width="1.5"'}><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`;}return h;}
+
+function buildCard(r){
+  return `<article class="review-card reveal" role="listitem">
+    <div class="review-header">
+      <div class="review-author">
+        <div class="review-avatar" aria-hidden="true">${(r.name||'').charAt(0)||'?'}</div>
+        <div>
+          <div class="review-name">${r.name||'Pelanggan'}</div>
+          <div class="review-location">${[r.location].filter(Boolean).join(', ')}</div>
+        </div>
+      </div>
+      ${r.verified?'<span class="review-verified">✔ Terverifikasi</span>':''}
+    </div>
+    <div class="review-stars" aria-label="Rating ${r.rating} dari 5">${stars(r.rating||0)}</div>
+    <p class="review-body">${r.comment||''}</p>
+    <div class="review-footer">
+      <span>${fmtDate(r.date)}</span>
+      <span>Rating ${r.rating}/5</span>
+    </div>
+  </article>`;
+}
+function renderReviews(){
+  const grid=document.getElementById('reviewGrid');
+  const empty=document.getElementById('reviewEmpty');
+  const summary=document.getElementById('reviewSummary');
+  if(!grid)return;
+  const queue=loadReviews().filter(r=>r.status==='approved');
+  const all=[...reviewSeed,...queue];
+  if(!all.length){if(summary)summary.hidden=true;grid.hidden=true;if(empty)empty.hidden=false;return;}
+  if(summary)summary.hidden=false;grid.hidden=false;if(empty)empty.hidden=true;
+  const avg=all.reduce((a,b)=>a+(b.rating||0),0)/all.length;
+  const avgEl=document.getElementById('avgRating');if(avgEl)avgEl.textContent=avg.toFixed(1);
+  const meta=document.getElementById('reviewMeta');if(meta)meta.textContent=`${all.length} ulasan`;
+  const avgStars=document.getElementById('avgStars');if(avgStars)avgStars.innerHTML=stars(Math.round(avg));
+  grid.innerHTML=all.map(buildCard).join('');
+  if('IntersectionObserver' in window){const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -30px 0px'});grid.querySelectorAll('.reveal').forEach(el=>obs.observe(el));}else{grid.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));}
+}
+
+/* ── Review Submit ───────────── */
+const ratingInput=document.getElementById('reviewRatingInput');
+const ratingValue=document.getElementById('reviewRatingValue');
+let currentRating=0;
+ratingInput.querySelectorAll('button').forEach(btn=>{btn.addEventListener('click',()=>{
+  currentRating=parseInt(btn.dataset.value||'0');ratingValue.value=currentRating;
+  ratingInput.querySelectorAll('button').forEach(b=>b.classList.toggle('active',parseInt(b.dataset.value||'0')<=currentRating));
+});});
+document.getElementById('reviewSubmitForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const name=document.getElementById('reviewName').value.trim();
+  const location=document.getElementById('reviewLocation').value.trim();
+  const comment=document.getElementById('reviewComment').value.trim();
+  const rating=parseInt(ratingValue.value||'0');
+  if(!name||!location||!rating||!comment)return alert('Lengkapi: Nama, Kota, Rating, dan Review.');
+  const queue=loadReviews();
+  queue.unshift({id:Date.now(),name,rating,comment,date:new Date().toISOString().slice(0,10),location,status:'pending',verified:false});
+  saveReviews(queue);
+  e.target.reset();ratingValue.value='0';currentRating=0;ratingInput.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
+  const success=document.getElementById('reviewSuccess');if(success){success.style.display='block';setTimeout(()=>{success.style.display='none';},4000);}
+  renderModeration();
+});
+document.getElementById('reviewResetBtn').addEventListener('click',()=>{
+  document.getElementById('reviewSubmitForm').reset();ratingValue.value='0';currentRating=0;ratingInput.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
+});
+
+/* ── Owner Moderation ────────── */
+const ownerPanel=document.getElementById('ownerPanel');
+const ownerOverlay=document.getElementById('ownerModalOverlay');
+const ownerPassword=document.getElementById('ownerPassword');
+const ownerLink=document.getElementById('ownerAccessLink');
+function openOwner(){ownerOverlay.classList.add('open');ownerOverlay.setAttribute('aria-hidden','false');ownerPassword.value='';document.body.style.overflow='hidden';}
+function closeOwner(){ownerOverlay.classList.remove('open');ownerOverlay.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+if(ownerLink){let ownerClicks=0, ownerTimer=null;ownerLink.addEventListener('click',e=>{e.preventDefault();ownerClicks++;ownerLink.style.color='rgba(255,255,255,.55)';if(ownerTimer)clearTimeout(ownerTimer);ownerTimer=setTimeout(()=>{ownerClicks=0;ownerLink.style.color='rgba(255,255,255,.25)';},1500);if(ownerClicks>=7){ownerClicks=0;clearTimeout(ownerTimer);ownerLink.style.color='rgba(255,255,255,.25)';openOwner();}});}
+document.querySelector('#ownerModalOverlay .modal-close').addEventListener('click',closeOwner);
+ownerOverlay.addEventListener('click',e=>{if(e.target===ownerOverlay)closeOwner();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeOwner();});
+ownerPassword.addEventListener('keydown',async e=>{if(e.key==='Enter'){
+  const settings=loadSettings();
+  let hash='';
+  try{const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(ownerPassword.value));hash=Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');}catch{}
+  if(hash===settings.passwordHash||ownerPassword.value===settings.password){closeOwner();ownerPanel.hidden=false;renderModeration();}
+  else{alert('Password salah.');ownerPassword.value='';}
+}});
+function renderModeration(){
+  const list=document.getElementById('moderationList');
+  const empty=document.getElementById('moderationEmpty');
+  const queue=loadReviews().filter(r=>r.status==='pending');
+  if(!list)return;
+  if(!queue.length){list.innerHTML='';if(empty)empty.hidden=false;return;}
+  if(empty)empty.hidden=true;
+  list.innerHTML=queue.map(r=>`<div class="review-moderation-item" data-id="${r.id}">
+    <div class="review-moderation-info">
+      <div class="review-moderation-name">${r.name||'Pelanggan'} · ${[r.location].filter(Boolean).join(', ')}</div>
+      <div class="review-moderation-meta">${fmtDate(r.date)} · Rating ${r.rating}/5</div>
+      <div style="font-size:var(--text-xs);color:var(--color-muted);margin-top:4px;">${(r.comment||'').slice(0,140)}${(r.comment||'').length>140?'...':''}</div>
+    </div>
+    <div class="review-moderation-actions">
+      <span class="review-badge pending">Menunggu</span>
+      <button class="btn btn-primary btn-sm mod-approve">Setujui</button>
+      <button class="btn btn-outline btn-sm mod-reject">Tolak</button>
+      <button class="btn btn-outline btn-sm mod-hapus">Hapus</button>
+    </div>
+  </div>`).join('');
+  list.querySelectorAll('.mod-approve').forEach(btn=>btn.addEventListener('click',()=>{
+    const id=parseInt(btn.closest('.review-moderation-item').dataset.id);
+    const items=loadReviews();const it=items.find(x=>x.id===id);if(it){it.status='approved';saveReviews(items);renderModeration();renderReviews();}
+  }));
+  list.querySelectorAll('.mod-reject').forEach(btn=>btn.addEventListener('click',()=>{
+    const id=parseInt(btn.closest('.review-moderation-item').dataset.id);
+    const items=loadReviews();const it=items.find(x=>x.id===id);if(it){it.status='rejected';saveReviews(items);renderModeration();}
+  }));
+  list.querySelectorAll('.mod-hapus').forEach(btn=>btn.addEventListener('click',()=>{
+    const id=parseInt(btn.closest('.review-moderation-item').dataset.id);
+    saveReviews(loadReviews().filter(x=>x.id!==id));renderModeration();
+  }));
+}
+document.addEventListener('DOMContentLoaded',()=>{renderReviews();renderModeration();});
+</script>
+
 </main>
 
 <script>
